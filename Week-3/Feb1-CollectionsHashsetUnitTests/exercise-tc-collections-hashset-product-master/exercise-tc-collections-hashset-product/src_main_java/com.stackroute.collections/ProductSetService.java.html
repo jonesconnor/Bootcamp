@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ProductSetService.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">com.stackroute.collections (Feb 6, 2023 11:14:41 AM)</a> &gt; <a href="../../index.html" class="el_group">exercise-tc-collections-hashset-product</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">com.stackroute.collections</a> &gt; <span class="el_source">ProductSetService.java</span></div><h1>ProductSetService.java</h1><pre class="source lang-java linenums">package com.stackroute.collections;
+
+import java.util.*;
+
+public class ProductSetService {
+
+    private Set&lt;Product&gt; productSet;
+
+    public Set&lt;Product&gt; getProductSet() {
+<span class="fc" id="L10">        return productSet;</span>
+    }
+
+    /*
+    Constructor to initialize productSet property as empty HashSet
+     */
+<span class="fc" id="L16">    public ProductSetService() {</span>
+<span class="fc" id="L17">        this.productSet = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L18">    }</span>
+
+    /*
+    Add a new product to the product set given the product details
+     */
+    public boolean addProductToSet(int productId, String productName, double price) throws InvalidPriceException {
+<span class="fc" id="L24">        return productSet.add(new Product(productId, productName, price));</span>
+    }
+
+    /*
+     check for a product with name eg .'Mixer' is available in the ProductSet
+     If available change the product name to eg.'Mixer Grinder' and returns the new product otherwise the same product
+     */
+    public Product replaceProductName(String oldProductName, String newProductName) {
+<span class="fc" id="L32">        Product replacedProduct = null;</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        if (!productSet.isEmpty()) {</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">            for (Iterator&lt;Product&gt; iterator = productSet.iterator(); iterator.hasNext(); ) {</span>
+<span class="fc" id="L35">                Product product = iterator.next();</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">                if (product.getProductName().equalsIgnoreCase(oldProductName)) {</span>
+<span class="fc" id="L37">                    replacedProduct = product;</span>
+<span class="fc" id="L38">                    break;</span>
+                }
+            }
+        }
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (null != replacedProduct) {</span>
+<span class="fc" id="L43">            replacedProduct.setProductName(newProductName);</span>
+        }
+<span class="fc" id="L45">        return replacedProduct;</span>
+    }
+
+    /*
+    Returns the product with highest price.Hint:Product is of Comparable type comparing against price
+    */
+    public Product getProductWithHighestPrice() {
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if (!productSet.isEmpty()) {</span>
+<span class="fc" id="L53">            return Collections.max(productSet);</span>
+        }
+<span class="fc" id="L55">        return null;</span>
+    }
+
+    /*
+    Returns set of products after removing the products whose price is greater than 5000
+     */
+    public Set&lt;Product&gt; removeProductWithPriceHigherThanFiveThousand() {
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        if (!productSet.isEmpty()) {</span>
+<span class="fc" id="L63">            Set&lt;Product&gt; tempProductSet = new HashSet&lt;&gt;(productSet);</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">            for (Product product : tempProductSet) {</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">                if (product.getPrice() &gt; 5000) {</span>
+<span class="fc" id="L66">                    productSet.remove(product);</span>
+                }
+            }
+        }
+<span class="fc" id="L70">        return productSet;</span>
+    }
+
+    /*
+    Returns product Id list in descending order
+     */
+    public List&lt;Integer&gt; getProductIdList() {
+<span class="fc" id="L77">        List&lt;Integer&gt; productIdList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">        for (Product product : productSet) {</span>
+<span class="fc" id="L79">            productIdList.add(product.getProductId());</span>
+        }
+<span class="fc" id="L81">        Comparator&lt;Integer&gt; idComparator = new Comparator&lt;Integer&gt;() {</span>
+            @Override
+            public int compare(Integer firstId, Integer secondId) {
+<span class="fc" id="L84">                return secondId - firstId;</span>
+            }
+        };
+<span class="fc" id="L87">        Collections.sort(productIdList, idComparator);</span>
+<span class="fc" id="L88">        return productIdList;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>com.stackroute.collections (Feb 6, 2023 11:14:41 AM)</div></body></html>

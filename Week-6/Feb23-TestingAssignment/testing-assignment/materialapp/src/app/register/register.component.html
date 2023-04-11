@@ -1,0 +1,27 @@
+<div>
+    <div></div>
+    <h4> Register User</h4>
+<p>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input class="name" matInput placeholder="enter name">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Role</mat-label>
+      <input class="role" matInput placeholder="enter role">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+    </mat-form-field>
+  </p>
+  <div class="example-button-container">
+    <button class="btn-register" (click)="register()" mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+      <mat-icon>bookmark</mat-icon>
+    </button>
+  </div>
+
+  <button class="btn-login" (click)="login()">Login</button>
+</div>

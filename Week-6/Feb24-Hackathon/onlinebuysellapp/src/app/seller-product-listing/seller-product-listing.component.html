@@ -1,0 +1,31 @@
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="sellerId">
+    <mat-header-cell *matHeaderCellDef> Seller ID </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.sellerId }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.name }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.description }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.price }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="removeProduct">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let product">
+      <button mat-button color="primary" (click)="deleteProduct(product)">Delete</button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['sellerId', 'name', 'description', 'price', 'removeProduct']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['sellerId', 'name', 'description', 'price', 'removeProduct'];"></mat-row>
+</mat-table>

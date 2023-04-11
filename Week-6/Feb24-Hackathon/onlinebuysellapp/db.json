@@ -1,0 +1,97 @@
+{
+  "users": [
+    {
+      "id": 5,
+      "name": "test",
+      "email": "test@test.com",
+      "password": "123456789",
+      "role": "buyer"
+    },
+    {
+      "id": 6,
+      "name": "testseller",
+      "email": "testseller@test.com",
+      "password": "123456789",
+      "role": "seller"
+    },
+    {
+      "id": 7,
+      "name": "newseller",
+      "email": "newseller@test.com",
+      "password": "12345678",
+      "role": "seller"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "description": "Description for Product 1",
+      "price": "19.99",
+      "sellerId": 6
+    },
+    {
+      "id": 3,
+      "name": "Product 3",
+      "description": "Description for Product 3",
+      "price": "39.99",
+      "sellerId": 3
+    },
+    {
+      "name": "Chips",
+      "description": "Description of chips",
+      "price": "5.99",
+      "sellerId": 6,
+      "id": 4
+    },
+    {
+      "name": "Water Bottle",
+      "description": "drink water",
+      "price": "22.99",
+      "sellerId": 6,
+      "id": 5
+    },
+    {
+      "name": "chocolate",
+      "description": "eat chocolate",
+      "price": "3.99",
+      "sellerId": 6,
+      "id": 6
+    },
+    {
+      "name": "coffee",
+      "description": "this is coffee",
+      "price": "5.99",
+      "sellerId": 7,
+      "id": 7
+    }
+  ],
+  "messages": [
+    {
+      "buyerId": 5,
+      "message": "hello",
+      "id": 1
+    },
+    {
+      "buyerId": 5,
+      "sellerId": 6,
+      "productId": 1,
+      "message": "hello",
+      "id": 2
+    },
+    {
+      "buyerId": 5,
+      "sellerId": 6,
+      "productId": 5,
+      "message": "Hi I would like this product please.",
+      "id": 3
+    },
+    {
+      "buyerId": 5,
+      "sellerId": 7,
+      "productId": 7,
+      "message": "i want your coffee",
+      "id": 4
+    }
+  ]
+}

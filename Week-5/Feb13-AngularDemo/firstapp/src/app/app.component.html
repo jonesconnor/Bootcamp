@@ -1,0 +1,29 @@
+<section class="bg-warning">
+  <h1>Welcome to Angular Session</h1>
+  {{title}}
+
+  <div *ngIf="count>=10">
+    <h3>Here is a random count variable : {{count}}</h3>
+  </div>
+
+  <h3>Users That Have Visited This Site</h3>
+  <ul *ngFor="let user of usernames">
+    <li>{{user}}</li>
+  </ul>
+
+  {{10*25}}
+
+  {{displayDate()}}
+
+  <div [ngClass]="flag? 'isRequired' : 'isOptional'">
+    This site is built using Angular
+  </div>
+
+  <!-- property binding example -->
+  <button [disabled] = isValid>Click Me</button>
+
+  <!-- template reference variable passing -->
+  <input #uname placeholder="enter your name">
+  <button (click)="validate(uname.value)">Sign in</button>
+
+</section>

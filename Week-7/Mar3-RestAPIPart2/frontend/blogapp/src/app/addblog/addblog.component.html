@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>New Blog</h2>
+<mat-dialog-content>
+  <form [formGroup]="blogForm">
+    <div class="clsform">
+      <mat-form-field appearance="fill">
+        <mat-label>Blog No.</mat-label>
+        <input matInput formControlName="blogId" placeholder="Blog ID">
+      </mat-form-field>
+    </div>
+    <div class="clsform">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="blogTitle" placeholder="Blog Title">
+      </mat-form-field>
+    </div>
+    <div class="clsform">
+      <mat-form-field appearance="fill">
+        <mat-label>Author</mat-label>
+        <input matInput formControlName="authorName" placeholder="Author Name">
+      </mat-form-field>
+    </div>
+    <div class="clsform">
+      <mat-form-field appearance="fill">
+        <mat-label>Blog Content</mat-label>
+        <textarea matInput formControlName="blogContent" placeholder="Blog Content"></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="onSubmit()" [disabled]=blogForm.invalid>Submit</button>
+  <button mat-button (click)="onCancel()">Cancel</button>
+</mat-dialog-actions>

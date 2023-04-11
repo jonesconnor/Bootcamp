@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-header style="justify-content: center;">
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="clsform">
+      <mat-form-field>
+        <input matInput placeholder="Username" #username class="w-100" required>
+      </mat-form-field>
+    </div>
+    <div class="clsform">
+      <mat-form-field>
+        <input matInput placeholder="Password" #password type="password" class="w-100" required>
+      </mat-form-field>
+    </div>
+    <div class="clsform">
+      <button (click)="signin(username.value, password.value)" mat-raised-button color="primary" type="submit">Login</button>
+      <button (click)="callRegistration()" class="btn-ml" mat-stroked-button color="primary" type="submit">Register</button>
+    </div>
+  </mat-card-content>
+</mat-card>

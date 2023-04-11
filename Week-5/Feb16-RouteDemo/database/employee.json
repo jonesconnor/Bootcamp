@@ -1,0 +1,26 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "empName": "Connor",
+      "role": "developer",
+      "isRetired": false
+    },
+    {
+      "id": 2,
+      "empName": "Alec",
+      "role": "CEO",
+      "isRetired": false
+    },
+    {
+      "id": "3",
+      "empName": "Lance",
+      "role": "Chief"
+    },
+    {
+      "id": "5",
+      "empName": "Caleb",
+      "role": "Professional Urinal Installer"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "users": [
+    {
+      "name": "admin",
+      "email": "admin@customerservice.com",
+      "username": "admin",
+      "password": "root"
+    },
+    {
+      "id": 1,
+      "name": "Connor",
+      "email": "connor@connor.com",
+      "username": "connor",
+      "password": "112345678"
+    },
+    {
+      "id": 2,
+      "name": "Connor",
+      "email": "connor@connor.com",
+      "username": "connor",
+      "password": "12345678"
+    },
+    {
+      "id": 3,
+      "name": "Alec",
+      "email": "alec@gmail.com",
+      "username": "alec",
+      "password": "987654321"
+    },
+    {
+      "id": 4,
+      "name": "lance",
+      "email": "lance@gmail.com",
+      "username": "lance",
+      "password": "abcdefghij"
+    },
+    {
+      "id": 5,
+      "name": "test",
+      "email": "test@test.com",
+      "username": "test",
+      "password": "test1234"
+    },
+    {
+      "id": 6,
+      "name": "Connor",
+      "email": "connor@cgi.com",
+      "username": "cjones",
+      "password": "cjoneskajfld"
+    },
+    {
+      "id": 7,
+      "name": "connor",
+      "email": "connor@cgi.ca",
+      "username": "c",
+      "password": "12345679"
+    }
+  ],
+  "queries": [
+    {
+      "id": 1,
+      "customerId": 1,
+      "date_request": "2023-02-20",
+      "description": "sample query"
+    },
+    {
+      "id": 2,
+      "customerId": 2,
+      "date_request": "2023-02-20",
+      "description": "sample query from customer 2"
+    },
+    {
+      "customerId": "1",
+      "date_request": "2023-02-23",
+      "description": "Hello World",
+      "id": 3
+    },
+    {
+      "customerId": "1",
+      "date_request": "2023-02-23",
+      "description": "Behavior Subject query",
+      "id": 4
+    },
+    {
+      "customerId": "1",
+      "date_request": "2023-02-23",
+      "description": "another query",
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "customerId": "1",
+      "date_request": "2023-02-23",
+      "description": "test query",
+      "id": 8
+    },
+    {
+      "customerId": "1",
+      "date_request": "2023-02-23",
+      "description": "hello from this dialog",
+      "id": 9
+    }
+  ]
+}

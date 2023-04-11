@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Basically Amazon</span>
+    <span class="spacer"></span>
+    <a *ngIf="!currentUser" routerLink="/login" mat-button>Login</a>
+    <a *ngIf="currentUser" [routerLink]="currentUser.role === 'buyer' ? '/buyer-home' : '/seller-home'" mat-button>Home</a>
+    <a *ngIf="currentUser && currentUser?.role === 'buyer'" routerLink="/wishlist" mat-button>Wishlist</a>
+    <a *ngIf="currentUser && currentUser?.role === 'seller'" routerLink="/messages" mat-button>Messages</a>
+    <button *ngIf="currentUser" mat-button (click)="logout()">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>

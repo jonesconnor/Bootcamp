@@ -1,0 +1,23 @@
+<section>
+    <h4>Employee Form</h4>
+    <!-- <input [(ngModel)]="name" placeholder="enter name"> -->
+
+    <div class="inputdiv">
+        <input [(ngModel)]="empobj.empId" placeholder="enter the employee ID">
+        <input [(ngModel)]="empobj.empName" placeholder="enter the employee name">
+        <button (click)="register()">Register</button>
+    </div>
+
+    <div *ngIf="employees?.length">
+        <div class="card" style="width: 15rem;" *ngFor="let e of employees">
+            <div class="card-body">
+              <h5 class="card-title">Employee ID: {{e.empId}}</h5>
+              <p class="card-text">Employee Name: {{e.empName | uppercase}}</p>
+              <button class="btn btn-primary" (click)="deleteEmp(e.empId)">Delete</button>
+              <button class="btn btn-primary" (click)="changeStatus(e)">{{e.isretired==true ? 'Old Employee' : 'Current Employee'}}</button>
+            </div>
+          </div>
+    </div>
+    <!-- {{name}} -->
+    <!-- <button (click)="display()">Click Here</button> -->
+</section>

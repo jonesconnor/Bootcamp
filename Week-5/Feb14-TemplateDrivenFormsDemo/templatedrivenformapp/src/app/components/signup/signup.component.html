@@ -1,0 +1,26 @@
+<div class="container">
+    <h1 class="alert alert-primary text-center mt-3">Template Driven Forms</h1>
+</div>
+<div class="container">
+    <form #signup="ngForm" (ngSubmit)="signupData()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="email" [(ngModel)]="user.email" #email="ngModel" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="user.password" #password="ngModel" minlength="8" required>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example" name="selectedCourse" [(ngModel)]="user.selectedCourse" #selectedCourse="ngModel" required>
+                <option *ngFor="let c of courses">{{c}}</option>
+              </select>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" name="isChecked" [(ngModel)]="user.isChecked" #isChecked="ngModel" required>
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="signup.invalid">Submit</button>
+      </form>
+</div>

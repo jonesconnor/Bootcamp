@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "name": "admin",
+      "email": "admin@customerservice.com",
+      "username": "admin",
+      "password": "root"
+    },
+    {
+      "id": 1,
+      "name": "Connor",
+      "email": "connor@connor.com",
+      "username": "connor",
+      "password": "112345678"
+    },
+    {
+      "id": 2,
+      "name": "Connor",
+      "email": "connor@connor.com",
+      "username": "connor",
+      "password": "12345678"
+    }
+  ],
+  "queries": [
+    {
+      "id": 1,
+      "customerId": 1,
+      "date_request": "2023-02-20",
+      "description": "sample query"
+    },
+    {
+      "id": 2,
+      "customerId": 2,
+      "date_request": "2023-02-20",
+      "description": "sample query from customer 2"
+    }
+  ]
+}

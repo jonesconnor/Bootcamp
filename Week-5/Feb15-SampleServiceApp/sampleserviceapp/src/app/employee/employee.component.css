@@ -1,0 +1,11 @@
+.clstemp {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.clscontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
