@@ -1,0 +1,14 @@
+section {
+    background: yellowgreen;
+}
+
+.inputdiv {
+    direction: flex;
+    flex-direction: column;
+    width: 300;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+}

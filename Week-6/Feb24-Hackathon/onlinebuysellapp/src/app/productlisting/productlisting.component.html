@@ -1,0 +1,47 @@
+<div class="mb">
+  <mat-card>
+    <mat-card-header style="justify-content: center;">
+      <mat-card-title>Products</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Filter by Seller</mat-label>
+    <mat-select [(value)]="selectedSellerId" (selectionChange)="onSellerFilterChange()">
+      <mat-option *ngFor="let seller of sellerIds" [value]="seller">{{ seller }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button *ngIf="selectedSellerId !== null" mat-button color="primary" (click)="clearSellerFilter()">Clear Filter</button>
+</div>
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="sellerId">
+    <mat-header-cell *matHeaderCellDef> Seller ID </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.sellerId }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.name }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.description }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.price }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="addToWishlist">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let product">
+      <button mat-button color="primary" (click)="addToWishlist(product)">Add to Wishlist</button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['sellerId', 'name', 'description', 'price', 'addToWishlist']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['sellerId', 'name', 'description', 'price', 'addToWishlist'];"></mat-row>
+</mat-table>

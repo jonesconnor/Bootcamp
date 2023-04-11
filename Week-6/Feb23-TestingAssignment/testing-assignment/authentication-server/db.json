@@ -1,0 +1,20 @@
+{
+  "employee": [
+    {
+      "id": "2",
+      "empName": "Mary Theresa",
+      "role": "Training Manager"
+    },
+    {
+      "id": "1",
+      "empName": "Rose",
+      "role": "Developer"
+    },
+    {
+      "id": "3",
+      "empName": "Lalia ",
+      "role": "Developer"
+    }
+    
+  ]
+}

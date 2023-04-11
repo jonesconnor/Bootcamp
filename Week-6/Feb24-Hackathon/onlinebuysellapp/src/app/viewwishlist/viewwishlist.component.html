@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-header style="justify-content: center;">
+    <mat-card-title>Wishlist</mat-card-title>
+  </mat-card-header>
+</mat-card>
+<table mat-table [dataSource]="wishlist">
+  <ng-container matColumnDef="sellerId">
+    <th mat-header-cell *matHeaderCellDef>Seller ID</th>
+    <td mat-cell *matCellDef="let product">{{product.sellerId}}</td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let product">{{product.name}}</td>
+  </ng-container>
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let product">{{product.description}}</td>
+  </ng-container>
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef="let product">{{product.price}}</td>
+  </ng-container>
+  <ng-container matColumnDef="messageSeller">
+    <th mat-header-cell *matHeaderCellDef>Message Seller</th>
+    <td mat-cell *matCellDef="let product">
+      <button mat-button color="primary" (click)="messageSeller(product)">Message</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['sellerId', 'name', 'description', 'price', 'messageSeller']"></tr>
+  <tr mat-row *matRowDef="let product; columns: ['sellerId', 'name', 'description', 'price', 'messageSeller']"></tr>
+</table>

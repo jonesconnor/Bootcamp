@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Message</h2>
+<div mat-dialog-content>
+  <form [formGroup]="messageForm">
+    <div class="clsform">
+      <mat-form-field appearance="fill">
+        <mat-label>Message</mat-label>
+        <textarea matInput formControlName="message"></textarea>
+        <mat-error *ngIf="messageForm.controls['message'].invalid">Description is required</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" (click)="sendMessage()" [disabled]="messageForm.invalid">Save</button>
+</div>

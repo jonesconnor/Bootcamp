@@ -1,0 +1,41 @@
+<div>
+  <h4> Add New Employee </h4>
+  <div class="clstemp">
+    <form name="form" (ngSubmit)="f.form.valid && onClick()" #f="ngForm" novalidate>
+        <input type="text" id="eid" name="id" [(ngModel)]="form.id" required placeholder="Enter ID" #id="ngModel">
+
+      <div *ngIf="f.submitted && id.invalid">
+        <span>ID can't be null</span>
+      </div>
+
+      <input type="text" id="ename" name="empName" [(ngModel)]="form.empName" required placeholder="Enter Name" #ename="ngModel">
+      <div *ngIf="f.submitted && ename.invalid">
+        <span>Employee name can't be null</span>
+      </div>
+
+      <input type="text" id="role" name="role" [(ngModel)]="form.role" required  minlength="4" placeholder="Enter Role" #role="ngModel">
+      <div *ngIf="f.submitted && role.invalid">
+        <span>Role name can't be null</span>
+      </div>
+      <div *ngIf="role.errors?.['minlength']">
+        <span>Role must be at least 4 characters</span>
+      </div>
+
+      <input type="submit" value="Add Employee">
+    </form>
+
+    <button (click)="filter()">Role Based</button>
+
+    <h3>List of Employees</h3>
+
+    <div class="clscontainer">
+      <div class="card" style="width: 18rem;" *ngFor="let e of filteredEmployees">
+        <div class="card-body">
+          <h5 class="card-title">{{e.empName}}</h5>
+          <p class="card-text">{{e.role}}</p>
+          <button (click)="delete(e.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+
+</div>

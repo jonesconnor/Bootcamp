@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="mat-display-1 text-center mt-3">Registration</h1>
+</div>
+<div>
+  <form #registration="ngForm" (ngSubmit)="addUser(registration, $event)">
+    <div class="clsform">
+      <mat-form-field class="mb-1 form-width">
+        <mat-label>Name</mat-label>
+        <input matInput class="w-100" type="text" id="name" name="name" [(ngModel)]="user.name" #name="ngModel" required>
+        <mat-error *ngIf="name.invalid">Name is required</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="clsform">
+      <mat-form-field class="mb-1 form-width">
+        <mat-label>Email</mat-label>
+        <input matInput class="w-100" type="email" id="email" name="email" [(ngModel)]="user.email" #email="ngModel" required>
+        <mat-error *ngIf="email.invalid">Email is required</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="clsform">
+      <mat-form-field class="mb-1 form-width">
+        <mat-label>Password</mat-label>
+        <input matInput class="w-100" type="password" id="exampleInputPassword1" name="password" [(ngModel)]="user.password" #password="ngModel" minlength="8" required>
+        <mat-error *ngIf="password.invalid">Password must be at least 8 characters long</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="clsform">
+      <mat-form-field class="mb-1 form-width">
+        <mat-label>Role</mat-label>
+        <mat-select [(ngModel)]="user.role" #role="ngModel" name="role" required>
+          <mat-option value="buyer">Buyer</mat-option>
+          <mat-option value="seller">Seller</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="clsform">
+      <button mat-raised-button type="submit" color="primary" [disabled]="registration.invalid">Submit</button>
+    </div>
+  </form>
+</div>

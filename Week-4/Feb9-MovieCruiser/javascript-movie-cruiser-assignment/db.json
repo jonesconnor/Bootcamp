@@ -1,0 +1,56 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "The Martian",
+      "image": "/css/images/martian.jpg"
+    },
+    {
+      "id": 2,
+      "title": "The Shawshank Redemption",
+      "image": "/css/images/shawshank.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Hot Rod",
+      "image": "/css/images/hot_rod.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Forrest Gump",
+      "image": "/css/images/forrest.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Monsters Inc",
+      "image": "/css/images/monsters.jpg"
+    },
+    {
+      "id": 6,
+      "title": "The Bee Movie",
+      "image": "/css/images/bee.jpg"
+    }
+  ],
+  "favourites": [
+    {
+      "id": 1,
+      "title": "The Martian",
+      "image": "/css/images/martian.jpg"
+    },
+    {
+      "id": 2,
+      "title": "The Shawshank Redemption",
+      "image": "/css/images/shawshank.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Monsters Inc",
+      "image": "/css/images/monsters.jpg"
+    },
+    {
+      "id": 6,
+      "title": "The Bee Movie",
+      "image": "/css/images/bee.jpg"
+    }
+  ]
+}

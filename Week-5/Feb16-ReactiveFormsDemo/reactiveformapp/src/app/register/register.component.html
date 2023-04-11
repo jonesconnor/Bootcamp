@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="mt-4 text-center alert alert-warning">Reactive Form</h1>
+  <div class="container">
+    <form [formGroup]="saveForm" (ngSubmit)="registerUser(saveForm)">
+      <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" formControlName="firstName" class="form-control" id="firstName" placeholder="First Name">
+        <span *ngIf="saveForm.get('firstName')?.touched && saveForm.get('firstName')?.hasError('required')">First Name is Required</span>
+        <span *ngIf="saveForm.get('firstName')?.touched && saveForm.get('firstName')?.hasError('pattern')">Alphabetical Characters Only</span>
+      </div>
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" formControlName="lastName" class="form-control" id="lastName" placeholder="Last name">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" formControlName="email" class="form-control" id="email" placeholder="name@example.com">
+      </div>
+      <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <select class="form-select" formControlName="gender" aria-label="Default select example">
+          <option selected>Select</option>
+          <option *ngFor="let g of genderList">{{g}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="mobileNumber" class="form-label">Mobile Number</label>
+        <input type="tel" formControlName="mobileNumber" class="form-control" id="mobileNumber" placeholder="Mobile Number">
+      </div>
+      <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <textarea class="form-control" formControlName="address" id="address" rows="1"></textarea>
+      </div>
+
+
+      <button class="btn btn-primary m-3" [disabled]="saveForm.invalid">Register</button>
+
+    </form>
+  </div>
+</div>

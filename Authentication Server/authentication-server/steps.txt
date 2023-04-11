@@ -1,0 +1,17 @@
+http://localhost:3000/auth/v1
+
+POST
+
+{
+	"username":"admin",
+	"password":"password"
+}
+
+
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOlsibm90ZXM6YWxsIiwibm90ZXM6cmVhZCIsIm5vdGVzOmVkaXQiXSwiaWF0IjoxNTg1NDc0Mjc0LCJzdWIiOiJhZG1pbiJ9.8krNskNv74cAE4uQ6bTM6oH1XECQZ-BRyYUWBuHpg2w
+
+
+Get
+http://localhost:3000/api/v1/notes

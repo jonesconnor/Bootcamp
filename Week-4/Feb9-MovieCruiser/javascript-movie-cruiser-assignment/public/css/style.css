@@ -1,0 +1,17 @@
+body {
+	margin: 0;
+}
+
+.navbar {
+	background-color: #3b3f44;
+}
+
+.jumbotron {
+	background-color: black;
+	color: #ffc107;
+}
+
+img {
+	width: 100px;
+	height: 400px;
+}

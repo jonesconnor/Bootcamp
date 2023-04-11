@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ProductSetServiceTests.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">com.stackroute.collections (Feb 6, 2023 11:14:41 AM)</a> &gt; <a href="../../index.html" class="el_group">exercise-tc-collections-hashset-product</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">com.stackroute.collections</a> &gt; <span class="el_source">ProductSetServiceTests.java</span></div><h1>ProductSetServiceTests.java</h1><pre class="source lang-java linenums">package com.stackroute.collections;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.util.*;
+
+<span class="fc" id="L10">public class ProductSetServiceTests {</span>
+	
+	private ProductSetService service;
+	
+	@BeforeEach
+	public void setUp() {
+<span class="fc" id="L16">		service = new ProductSetService();</span>
+<span class="fc" id="L17">	}</span>
+	
+	@AfterEach
+	public void end() {
+<span class="fc" id="L21">		service = null;</span>
+<span class="fc" id="L22">	}</span>
+	
+	@Test
+	public void givenProductToAddToSetShouldReturnTrueAndSizeShouldReturn1() {
+<span class="fc" id="L26">		assertTrue(service.addProductToSet(1, &quot;Product 1&quot;, 10.0));</span>
+<span class="fc" id="L27">        assertEquals(1, service.getProductSet().size());</span>
+<span class="fc" id="L28">	}</span>
+	
+	@Test
+	public void givenProductReplaceProductNameShouldReturnUpdatedProductName() {
+<span class="fc" id="L32">		service.getProductSet().add(new Product(1, &quot;Product 1&quot;, 10.0));</span>
+<span class="fc" id="L33">        Product replacedProduct = service.replaceProductName(&quot;Product 1&quot;, &quot;Product 2&quot;);</span>
+<span class="fc" id="L34">        assertNotNull(replacedProduct);</span>
+<span class="fc" id="L35">        assertEquals(&quot;Product 2&quot;, replacedProduct.getProductName());</span>
+<span class="fc" id="L36">	}</span>
+	
+	@Test
+    void givenProductSetIsEmptyShouldReturnNull() {
+<span class="fc" id="L40">        assertNull(service.replaceProductName(&quot;OldProductName&quot;, &quot;NewProductName&quot;));</span>
+<span class="fc" id="L41">    }</span>
+	
+	@Test
+	void givenProductReplaceProductNameButGivenNameDoesNotExistShouldReturnNull() {
+<span class="fc" id="L45">		service.getProductSet().add(new Product(1, &quot;Product 1&quot;, 10.0));</span>
+<span class="fc" id="L46">		Product replacedProduct = service.replaceProductName(&quot;Product 2&quot;, &quot;Product 3&quot;);</span>
+<span class="fc" id="L47">		assertNull(replacedProduct);</span>
+<span class="fc" id="L48">	}</span>
+	
+	@Test
+	void givenEmptyProductSetShouldReturnNull() {
+<span class="fc" id="L52">		Product highestPrice = service.getProductWithHighestPrice();</span>
+<span class="fc" id="L53">		assertNull(highestPrice);</span>
+<span class="fc" id="L54">	}</span>
+	
+	@Test
+	void givenProductSetWithOneProductShouldReturnThatProduct() {
+<span class="fc" id="L58">		Product highestPrice = new Product(1, &quot;Apple&quot;, 10);</span>
+<span class="fc" id="L59">	    service.addProductToSet(1, &quot;Apple&quot;, 10);</span>
+<span class="fc" id="L60">	    assertEquals(highestPrice, service.getProductWithHighestPrice());</span>
+<span class="fc" id="L61">	}</span>
+
+	@Test
+	void givenProductSetHasMultipleProductsShouldReturnProductWithHighestPrice() {
+<span class="fc" id="L65">		Product highestPrice = new Product(3, &quot;Mango&quot;, 12);</span>
+<span class="fc" id="L66">	    service.addProductToSet(1, &quot;Apple&quot;, 10);</span>
+<span class="fc" id="L67">	    service.addProductToSet(2, &quot;Banana&quot;, 11);</span>
+<span class="fc" id="L68">	    service.addProductToSet(3, &quot;Mango&quot;, 12);</span>
+<span class="fc" id="L69">	    assertEquals(highestPrice, service.getProductWithHighestPrice());</span>
+<span class="fc" id="L70">	}</span>
+	
+	@Test
+	void givenEmptyProductSetShouldReturnEmptyProductSet() {
+<span class="fc" id="L74">		Set&lt;Product&gt; result = service.removeProductWithPriceHigherThanFiveThousand();</span>
+<span class="fc" id="L75">		assertTrue(result.isEmpty());</span>
+<span class="fc" id="L76">	}</span>
+	
+	@Test
+	void givenSetWithSomeProductsGreaterThan5000ShouldReturnSetWithoutThoseItems() {
+		
+<span class="fc" id="L81">		Set&lt;Product&gt; desiredSet = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L82">		desiredSet.add(new Product(1, &quot;Apple&quot;, 1200));</span>
+		
+<span class="fc" id="L84">		service.addProductToSet(1, &quot;Apple&quot;, 1200);</span>
+<span class="fc" id="L85">	    service.addProductToSet(2, &quot;Banana&quot;, 6400);</span>
+<span class="fc" id="L86">	    service.addProductToSet(3, &quot;Mango&quot;, 9000);</span>
+	    
+<span class="fc" id="L88">	    Set&lt;Product&gt; result = service.removeProductWithPriceHigherThanFiveThousand();</span>
+<span class="fc" id="L89">	    assertEquals(desiredSet, result);</span>
+<span class="fc" id="L90">	}</span>
+	
+	@Test
+	void givenEmptyProductSetShouldReturnEmptyProductList() {
+<span class="fc" id="L94">		List&lt;Integer&gt; productIdList = service.getProductIdList();</span>
+<span class="fc" id="L95">		assertTrue(productIdList.isEmpty());</span>
+<span class="fc" id="L96">	}</span>
+	
+	@Test
+	void givenPopulatedProductSetShouldReturnSortedProductIdListInDescendingOrder() {
+<span class="fc" id="L100">		service.addProductToSet(1, &quot;Apple&quot;, 10);</span>
+<span class="fc" id="L101">	    service.addProductToSet(2, &quot;Banana&quot;, 11);</span>
+<span class="fc" id="L102">	    service.addProductToSet(3, &quot;Mango&quot;, 12);</span>
+	    
+<span class="fc" id="L104">	    List&lt;Integer&gt; productIdList = service.getProductIdList();</span>
+<span class="fc" id="L105">	    assertEquals(Arrays.asList(3,2,1), productIdList);</span>
+	    
+<span class="fc" id="L107">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>com.stackroute.collections (Feb 6, 2023 11:14:41 AM)</div></body></html>

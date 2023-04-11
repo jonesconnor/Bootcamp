@@ -1,0 +1,7 @@
+<div>
+  <h2>Login</h2>
+  <input type="text" name="username" #uname>
+  <input type="password" name="password" #pass>
+  <button class="btn btn-warning" (click)="callDash(uname.value, pass.value)">Login</button>
+  {{msg}}
+</div>

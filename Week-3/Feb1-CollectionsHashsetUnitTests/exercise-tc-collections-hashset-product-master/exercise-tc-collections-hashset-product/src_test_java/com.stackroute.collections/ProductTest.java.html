@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ProductTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">com.stackroute.collections (Feb 6, 2023 11:14:41 AM)</a> &gt; <a href="../../index.html" class="el_group">exercise-tc-collections-hashset-product</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">com.stackroute.collections</a> &gt; <span class="el_source">ProductTest.java</span></div><h1>ProductTest.java</h1><pre class="source lang-java linenums">package com.stackroute.collections;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+<span class="fc" id="L6">public class ProductTest {</span>
+	
+	    @Test
+	    void givenValidInputShouldCreateProduct(){
+<span class="fc" id="L10">	        Product product = new Product(1, &quot;Apple&quot;, 10.5);</span>
+<span class="fc" id="L11">	        assertNotNull(product);</span>
+<span class="fc" id="L12">	        assertEquals(1, product.getProductId());</span>
+<span class="fc" id="L13">	        assertEquals(&quot;Apple&quot;, product.getProductName());</span>
+<span class="fc" id="L14">	        assertEquals(10.5, product.getPrice());</span>
+<span class="fc" id="L15">	    }</span>
+	    
+
+	    @Test
+	    void givenInvalidPriceShouldThrowException() {
+<span class="pc" id="L20">	        Exception exception = assertThrows(InvalidPriceException.class, () -&gt; new Product(1, &quot;Apple&quot;, -10.5));</span>
+<span class="fc" id="L21">	        assertEquals(&quot;Product price should be greater than zero&quot;, exception.getMessage());</span>
+<span class="fc" id="L22">	    }</span>
+
+	    @Test
+	    void givenNewProductNameShouldReturnUpdatedProductName() {
+<span class="fc" id="L26">	    	Product product = new Product(1, &quot;Apple&quot;, 14);</span>
+<span class="fc" id="L27">	    	product.setProductName(&quot;Apple Pie&quot;);</span>
+<span class="fc" id="L28">	    	assertEquals(&quot;Apple Pie&quot;, product.getProductName());</span>
+<span class="fc" id="L29">	    }</span>
+
+	    @Test 
+	    void givenObjectWhenComparedWithItselfShouldReturnTrue() {
+<span class="fc" id="L33">	    	Product product = new Product(1, &quot;Apple&quot;, 10);</span>
+<span class="fc" id="L34">	    	assertTrue(product.equals(product));</span>
+<span class="fc" id="L35">	    }</span>
+	    
+	    @Test
+	    void givenDifferentObjectSamePropertiesShouldReturnTrue() {
+<span class="fc" id="L39">	        Product product1 = new Product(1, &quot;Apple&quot;, 10.5);</span>
+<span class="fc" id="L40">	        Product product2 = new Product(1, &quot;Apple&quot;, 10.5);</span>
+<span class="fc" id="L41">	        assertTrue(product1.equals(product2));</span>
+<span class="fc" id="L42">	    }</span>
+	    
+	    @Test
+	    void givenDifferentObjectsDifferentPropertiesShouldReturnFalse() {
+<span class="fc" id="L46">	    	Product product1 = new Product(1, &quot;Apple&quot;, 10);</span>
+<span class="fc" id="L47">	    	Product product2 = new Product(2, &quot;Banana&quot;, 11);</span>
+<span class="fc" id="L48">	    	assertFalse(product1.equals(product2));</span>
+<span class="fc" id="L49">	    }</span>
+	    
+	    @Test
+	    void givenObjectWhenComparedWithNullShouldReturnFalse() {
+<span class="fc" id="L53">	    	Product product = new Product(1, &quot;Apple&quot;, 10);</span>
+<span class="fc" id="L54">	    	assertFalse(product.equals(null));</span>
+<span class="fc" id="L55">	    }</span>
+	    
+	    @Test
+	    void givenObjectWhenComparedWithDifferentClassShouldReturnFalse() {
+<span class="fc" id="L59">	    	Product product = new Product(1, &quot;Apple&quot;, 10);</span>
+<span class="fc" id="L60">	    	assertFalse(product.equals(&quot;String&quot;));</span>
+<span class="fc" id="L61">	    }</span>
+
+	    @Test
+	    void givenDifferentObjectDifferentPropertiesShouldReturnFalse() {
+<span class="fc" id="L65">	        Product product1 = new Product(1, &quot;Apple&quot;, 10.5);</span>
+<span class="fc" id="L66">	        Product product2 = new Product(2, &quot;Banana&quot;, 20);</span>
+<span class="fc" id="L67">	        assertFalse(product1.equals(product2));</span>
+<span class="fc" id="L68">	    }</span>
+	    
+	    @Test
+	    void givenTwoDifferentObjectsWithDifferentProductIdShouldReturnFalse() {
+<span class="fc" id="L72">	        Product product1 = new Product(1, &quot;Apple&quot;, 10.5);</span>
+<span class="fc" id="L73">	        Product product2 = new Product(2, &quot;Apple&quot;, 10.5);</span>
+<span class="fc" id="L74">	        assertFalse(product1.equals(product2));</span>
+<span class="fc" id="L75">	    }</span>
+
+	    @Test
+	    void givenTwoDifferentObjectsWithDifferentPriceShouldReturnFalse() {
+<span class="fc" id="L79">	        Product product1 = new Product(1, &quot;Apple&quot;, 10.5);</span>
+<span class="fc" id="L80">	        Product product2 = new Product(1, &quot;Apple&quot;, 20);</span>
+<span class="fc" id="L81">	        assertFalse(product1.equals(product2));</span>
+<span class="fc" id="L82">	    }</span>
+
+	    @Test
+	    void givenTwoDifferentObjectsWithDifferentProductNameShouldReturnFalse() {
+<span class="fc" id="L86">	        Product product1 = new Product(1, &quot;Apple&quot;, 10.5);</span>
+<span class="fc" id="L87">	        Product product2 = new Product(1, &quot;Banana&quot;, 10.5);</span>
+<span class="fc" id="L88">	        assertFalse(product1.equals(product2));</span>
+<span class="fc" id="L89">	    }</span>
+
+	    @Test
+	    void givenTwoDifferentObjectsCompareToSamePriceShouldReturnZero() {
+<span class="fc" id="L93">	        Product product1 = new Product(1, &quot;Apple&quot;, 10.5);</span>
+<span class="fc" id="L94">	        Product product2 = new Product(2, &quot;Banana&quot;, 10.5);</span>
+<span class="fc" id="L95">	        assertEquals(0, product1.compareTo(product2));</span>
+<span class="fc" id="L96">	    }</span>
+	    
+	    @Test
+	    public void givenTwoIdenticalProductsHashCodeReturnsSame() {
+<span class="fc" id="L100">	        Product product1 = new Product(1, &quot;Test Product&quot;, 10.0);</span>
+<span class="fc" id="L101">	        Product product2 = new Product(1, &quot;Test Product&quot;, 10.0);</span>
+<span class="fc" id="L102">	        assertEquals(product1.hashCode(), product2.hashCode());</span>
+<span class="fc" id="L103">	    }</span>
+	    
+	    @Test
+	    public void givenTwoDifferentProductsHashCodeReturnsDifferent() {
+<span class="fc" id="L107">	        Product product1 = new Product(1, &quot;Test Product&quot;, 10.0);</span>
+<span class="fc" id="L108">	        Product product2 = new Product(2, &quot;Test Product&quot;, 10.0);</span>
+<span class="fc" id="L109">	        assertNotEquals(product1.hashCode(), product2.hashCode());</span>
+<span class="fc" id="L110">	    }</span>
+	    
+	    @Test
+	    public void givenProductShouldReturnCorrectToStringFormat() {
+<span class="fc" id="L114">	    	Product product = new Product(1, &quot;Test Product&quot;, 10);</span>
+<span class="fc" id="L115">	    	String toString = &quot;Product{productId=1, productName=Test Product, price=10.0}&quot;;</span>
+<span class="fc" id="L116">	    	assertEquals(toString, product.toString());</span>
+<span class="fc" id="L117">	    }</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>com.stackroute.collections (Feb 6, 2023 11:14:41 AM)</div></body></html>

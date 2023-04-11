@@ -1,0 +1,16 @@
+h1,h3,a {
+    font-family: 'Permanent Marker', cursive;
+}
+
+#jumbotron-main {
+    background-color: #FFC107; 
+    color: #000;
+}
+
+#profile-container {
+    padding-top: 50px;
+}
+
+#plot-summary-container {
+    background-color: #FFC107; 
+}

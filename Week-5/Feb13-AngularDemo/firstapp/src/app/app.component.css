@@ -1,0 +1,8 @@
+.isRequired {
+    color: red;
+    font-weight: bold;
+}
+
+.isOptional {
+    color: yellowgreen;
+}

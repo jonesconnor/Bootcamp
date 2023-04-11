@@ -1,0 +1,48 @@
+.container {
+    border: 1px solid black;
+    margin-bottom: 5px;
+}
+
+.logo {
+    width: 240px;
+    height: 150px;
+}
+
+.nav {
+    font: 18px Monotype Corsiva;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.campus-shots {
+    width: 210px;
+    height: 160px;
+    border: 1px solid blue;
+    border-radius: 5%;
+    margin-top: 25px;
+    margin-bottom: 100px;
+}
+
+.about {
+    color:gray;
+}
+
+.contact {
+    color: green;
+}
+
+p {
+    font-size: 10pt;
+}
+
+footer {
+    text-align: center;
+    background-color: blue;
+    color: white;
+    margin-bottom: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Footer height */
+}

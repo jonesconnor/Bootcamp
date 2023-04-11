@@ -1,0 +1,45 @@
+<div>
+  <mat-card>
+    <mat-card-header style="justify-content: center;">
+      <mat-card-title>Blog Site</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
+<div class="example-container mat-elevation-z8">
+  <mat-table [dataSource]="blogs">
+
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let blog">{{ blog.blogId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let blog">{{ blog.blogTitle }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Author">
+      <th mat-header-cell *matHeaderCellDef>Author</th>
+      <td mat-cell *matCellDef="let blog">{{ blog.authorName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Blog">
+      <th mat-header-cell *matHeaderCellDef>Blog</th>
+      <td mat-cell *matCellDef="let blog">{{ blog.blogContent }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let blog">
+        <button mat-raised-button color="warn" (click)="deleteBlog(blog.blogId)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['ID', 'Title', 'Author', 'Blog', 'Actions']"></tr>
+    <tr mat-row *matRowDef="let blog; columns: ['ID', 'Title', 'Author', 'Blog', 'Actions']"></tr>
+
+  </mat-table>
+</div>
+<div class="clsform">
+  <button mat-raised-button color="primary" (click)="openDialog()">New Blog</button>
+</div>

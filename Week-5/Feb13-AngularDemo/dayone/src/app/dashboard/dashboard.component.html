@@ -1,0 +1,8 @@
+<div class="backdrop">
+    <span [style.color] = "color">Dashboard data</span>
+    <ul *ngFor="let c of courses">
+        <li>{{c}}</li>
+    </ul>
+    <input #name placeholder="enter your name">
+    <button (click)="showDetail(name.value)">Show Detail</button>
+</div>

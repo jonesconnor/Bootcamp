@@ -1,0 +1,42 @@
+<!-- <div class="clsform">
+  <form [formGroup] = "form" (ngSubmit) = "onSubmit()">
+    <h3>Create New Query</h3>
+    <input id="customerId" formControlName="customerId" placeholder="Enter Customer ID">
+    <input id="date_request" formControlName="date_request" placeholder="Enter Today's Date (YYYY-MM-DD)">
+    <input id="description" formControlName="description" placeholder="Describe Your Query">
+    <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Submit</button>
+  </form>
+</div> -->
+
+<h2 mat-dialog-title>Add Query</h2>
+<div mat-dialog-content>
+  <form [formGroup]="queryForm">
+    <div class="clsform">
+      <mat-form-field appearance="fill">
+        <mat-label>Customer ID</mat-label>
+        <input matInput formControlName="customerId">
+        <mat-error *ngIf="queryForm.controls['customerId'].invalid">Customer ID is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="clsform">
+      <mat-form-field appearance="fill">
+        <mat-label>Request Date (YYYY-MM-DD)</mat-label>
+        <textarea matInput formControlName="date_request"></textarea>
+        <mat-error *ngIf="queryForm.controls['date_request'].invalid">Date is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="clsform">
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+        <mat-error *ngIf="queryForm.controls['description'].invalid">Description is required</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" (click)="submitQuery()" [disabled]="queryForm.invalid">Save</button>
+</div>

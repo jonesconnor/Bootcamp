@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ee51fa904f.js" crossorigin="anonymous"></script>
+    <title>The Bee Movie</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Bee Movie</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items" aria-controls="navbar-items" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-items">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#">Characters</a>
+              <a class="nav-link" href="#">Plot</a>
+              <a class="nav-link">Quotes</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <div class="jumbotron text-center py-5" id="jumbotron-main">
+        <img src="images/barry_jumbotron_img.jpg" class="img-fluid rounded mb-3" alt="Bee Movie header image">
+        <h1 class="display-4">The Bee Movie</h1>
+        <p class="lead">"According to all known laws of aviation, there is nothing stopping a woman from marrying a bee." - actual quote</p>
+    </div>
+
+    <!-- Character Profiles -->
+    <div class="container-fluid bg-dark">
+        <div class="container bg-dark" id="profile-container">
+            <div class="row">
+                <div class="col-md-4">
+                  <!-- First card -->
+                  <div class="card mb-4 text-bg-warning" style="width: 18rem;">
+                    <img class="card-img-top" src="images/barry_new.jpg" id="card-img" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title text-center"><i class="fa-solid fa-droplet"></i> Barry</h5>
+                      <p class="card-text text-center">is a bee.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <!-- Second card -->
+                  <div class="card mb-4 text-bg-warning" style="width: 18rem;">
+                    <img class="card-img-top" src="images/vanessa_new.jpg" id="card-img" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title text-center"><i class="fa-solid fa-droplet"></i> Vanessa</h5>
+                      <p class="card-text text-center">is the protector of honey.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <!-- Third card -->
+                  <div class="card mb-4 text-bg-warning" style="width: 18rem;">
+                    <img class="card-img-top" src="images/ken_new.png" id="card-img" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title text-center"><i class="fa-solid fa-droplet"></i> Ken</h5>
+                      <p class="card-text text-center">has issues.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="container-fluid pt-3 pb-3" id="plot-summary-container">
+        <h3>Plot Intro</h3>
+        <p>Barry B. Benson (Jerry Seinfeld) is "just an ordinary bee" in a hive in Sheep Meadow, Central Park in New York City. Barry recently graduated from college and is about to enter the hive's Honex Industries (a division of Honesco Corporation and owned by the Hexagon Group) honey-making workforce. With his best friend Adam Flayman (Matthew Broderick), Barry is initially very excited, but his latent, non-conformist attitude emerges upon finding out that his choice of job will never change once picked.</p>
+      </div>
+      <footer class="bg-dark py-3">
+        <div class="container text-center">
+        <p class="text-light">email: barrybbenson@honey.com</p>
+          <p class="text-light">Copyright &copy; Buzz Buzz Industries 2023</p>
+        </div>
+      </footer>
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
