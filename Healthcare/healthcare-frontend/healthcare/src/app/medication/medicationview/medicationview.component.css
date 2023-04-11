@@ -1,0 +1,42 @@
+.example-card {
+  max-width: 400px;
+}
+
+.purpose {
+  white-space: nowrap;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.active {
+  white-space: nowrap;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-amber {
+  background-color: #fec901 !important;
+}
+
+mat-card-title {
+  color: #485bbd;
+}
+
+.input__search {
+  width: 100%;
+}
+
+.top {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+  text-align: center;
+}
+
+@media only screen and (min-width: 1024px) {
+  .input__search {
+    max-width: 1024px;
+  }
+}

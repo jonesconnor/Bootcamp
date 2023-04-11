@@ -1,0 +1,8 @@
+<div>
+ <h2> Login </h2>
+    <input type="text" name="username" #uname />
+    <input type="password" name="password" #pwd/>
+{{msg}}
+ <button (click)="callDashboard(uname.value,pwd.value)"> Sign in</button>
+
+</div>

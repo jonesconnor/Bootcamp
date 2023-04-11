@@ -1,0 +1,131 @@
+<header class="header">
+  <nav
+    class="navbar navbar-expand-lg navbar-dark bg-dark"
+    aria-label="Main Navigation"
+  >
+    <div class="container-fluid">
+      <h1 class="navbar_title" style="margin-bottom: 0">
+        <a class="navbar-brand" href="#">
+          <i class="fa-solid fa-stethoscope"></i>
+          Compassionet
+        </a>
+      </h1>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarsExample05"
+        aria-controls="navbarsExample05"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample05">
+        <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+          <li class="nav-item mb-2 mb-lg-0">
+            <a class="nav-link" (click)="goHome()">
+              <i class="fa-solid fa-house"></i>
+              Home
+            </a>
+          </li>
+          <li
+            class="nav-item mb-2 mb-lg-0"
+            [hidden]="role === 'ServiceProvider'"
+          >
+            <a class="nav-link" (click)="goSearchProviders()">
+              <i class="fa-solid fa-user-doctor"></i>
+              Service Providers
+            </a>
+          </li>
+          <li class="nav-item mb-2 mb-lg-0">
+            <a class="nav-link" (click)="goToMedications()">
+              <i class="fa-solid fa-pills"></i>
+              Medications
+            </a>
+          </li>
+          <li
+            class="nav-item mb-2 mb-lg-0"
+            [hidden]="role !== 'ServiceProvider'" 
+          >
+            <a class="nav-link" (click)="goToCalendar()">
+              <i class="fa-solid fa-calendar"> </i>
+              Calendar
+            </a>
+          </li>
+          <li class="nav-item mb-2 mb-lg-0" [hidden]="true">
+            <a class="nav-link" (click)="goToAllBookings()">
+              <i class="fa-regular fa-calendar-days"></i>
+              All Bookings
+            </a>
+          </li>
+          <li class="nav-item mb-2 mb-lg-0" [hidden]="!role">
+            <a class="nav-link" (click)="goToPaymentsDashboard()">
+              <i class="fa-solid fa-credit-card"></i>
+              Payments
+            </a>
+          </li>
+          <li
+            class="nav-item mb-2 mb-lg-0"
+            [hidden]="role !== 'ServiceProvider'"
+          >
+            <a class="nav-link" (click)="goToReviews()">
+              <i class="fa-solid fa-comments"></i>
+              Reviews
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav mb-2 mb-lg-0 user__actions">
+          <li class="nav-item mb-2 mb-lg-0">
+            <button
+              [hidden]="role !== 'ServiceProvider' && role !== 'Patient'"
+              type="button"
+              class="btn-notifications"
+              (click)="openNotifications()"
+            >
+              <span
+                *ngIf="notificationsCount > 0"
+                class="material-symbols-outlined"
+                [matBadge]="notificationsCount"
+                matBadgePosition="before"
+                matBadgeColor="accent"
+              >
+                notifications
+              </span>
+              <span
+                *ngIf="notificationsCount === 0"
+                class="material-symbols-outlined"
+              >
+                notifications
+              </span>
+              Notifications
+            </button>
+          </li>
+          <li class="nav-item mb-2 mb-lg-0">
+            <a
+              class="nav-link"
+              (click)="goToProfile()"
+              [hidden]="role !== 'ServiceProvider' && role !== 'Patient'"
+            >
+              <i class="fa-solid fa-user-circle"></i>
+              {{ uname }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn-logout" (click)="logoutUser()">
+              {{ isLoggedIn ? "Logout" : "Login" }}
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<app-notifications-panel
+  [togglePanel]="isNotificationsOpen"
+  (panelClosed)="closeNotifications()"
+  (sendNotificationsToHeader)="updateNoOfNotifications($event)"
+>
+</app-notifications-panel>

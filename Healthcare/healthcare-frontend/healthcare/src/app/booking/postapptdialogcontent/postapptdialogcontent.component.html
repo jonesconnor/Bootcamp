@@ -1,0 +1,19 @@
+<h2 mat-dialog-title class="clsform">Post-Appointment Analysis</h2>
+<div mat-dialog-content class="custom-dialog pb">
+  <form [formGroup]="postBookingForm">
+    <div class="clsform">
+      <mat-form-field appearance="fill">
+        <mat-label>Appointment Notes</mat-label>
+        <textarea class="custom-textarea" matInput formControlName="notes" placeholder="notes"></textarea>
+        <mat-error *ngIf="postBookingForm.controls['notes'].invalid">Appointment Notes are Required</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="clsform">
+      <mat-checkbox formControlName="needsPrescription">Do you need to prescribe medications?</mat-checkbox>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions class="clsform">
+  <button mat-button class="mat-amber" (click)="onNext()" [disabled]="postBookingForm.invalid">Next</button>
+</div>
+

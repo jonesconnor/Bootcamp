@@ -1,0 +1,26 @@
+<mat-list class="notification-list__wrapper">
+    <div *ngIf="notes.length > 0; else elseBlock">
+      <mat-list-item
+        *ngFor="let note of notes"
+        class="notifications-list"
+      >
+        <mat-icon matListItemIcon class="icon-alert"
+          >notifications_active</mat-icon
+        >
+        <h3 class="notification-title" matListItemTitle>
+          {{ note }}
+          <button
+            type="button"
+            class="btn-done"
+            (click)="removeNotification(note)"
+          >
+            <span class="material-symbols-outlined"> check_circle </span>
+          </button>
+        </h3>
+      </mat-list-item>
+    </div>
+    <ng-template #elseBlock>
+      <p class="message">You have no active notifications</p>
+    </ng-template>
+  </mat-list>
+  

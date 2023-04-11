@@ -1,0 +1,36 @@
+<main>
+  <div class="schedule__container">
+    <!-- SideNav component -->
+    <app-side-nav></app-side-nav>
+
+    <section class="content">
+      <h2 class="page__title">{{ pageTitle }}</h2>
+
+      <div class="toconfirm__panel" *ngIf="showToConfirmPanel">
+        <h3 class="toconfirm__title">Appointments Requiring Confirmation</h3>
+        <mat-list *ngFor="let booking of bookings" class="bookings__list">
+          <button
+            *ngIf="booking.status === 0"
+            mat-list-item
+            (click)="handleEventClick({ event: booking })"
+            class="bookings__item"
+          >
+            <i class="fa-solid fa-circle-exclamation me-2"></i>
+            <b>Date:</b>
+            {{ booking.timeSlot.bookingDate }} at
+            {{ booking.timeSlot.bookingTime }}
+            <b>Subject:</b>
+            {{ booking.subject }}
+            <b>Location: </b>
+            {{ booking.location }}
+          </button>
+        </mat-list>
+      </div>
+      <hr class="divider" *ngIf="showToConfirmPanel" />
+      <div class="calendar__wrapper">
+        <h3 class="calendar__title">My Calendar</h3>
+        <full-calendar [options]="calendarOptions"></full-calendar>
+      </div>
+    </section>
+  </div>
+</main>

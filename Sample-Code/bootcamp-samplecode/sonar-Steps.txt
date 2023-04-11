@@ -1,0 +1,52 @@
+
+
+https://docs.sonarqube.org/latest/try-out-sonarqube/
+
+steps
+
+
+docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest
+
+
+localhost:9000
+admin
+admin
+
+chagne pwd
+
+create project
+ project display name : give something
+
+	click -> setup
+
+choose locally
+
+generate project token
+
+continue
+
+choose maven
+
+copy the commands
+
+eg
+mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=abc \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=sqp_3b546738823ddec43085b64b27d0ddc4ebf2cea1
+
+
+remove all \ and keep it one line
+
+
+Go to your spring boot application main folder , goto command prompt
+
+set JAVA_HOME=c:\prg file\java\jdk17 (your recent versions) in command prompt 
+
+and run mvn command copied
+
+
+Verify in website (localhost:9000)
+
+
+

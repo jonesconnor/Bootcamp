@@ -1,0 +1,6 @@
+.mycards
+{
+    display: flex;
+    flex-direction: row;
+    background: lightgreen;
+}

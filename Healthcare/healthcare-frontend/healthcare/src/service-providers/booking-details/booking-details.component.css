@@ -1,0 +1,27 @@
+.dialog__title {
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+  padding: 0.25rem 1rem;
+}
+
+.patient-name {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.dialog__content {
+  padding: 1rem;
+}
+
+.actions__wrapper {
+  margin: 2rem 0 1rem;
+  text-align: center;
+}
+
+.btn__action {
+  margin: 0 0.5rem;
+}
+
+.mat-icon {
+  margin-right: 0.5rem;
+}

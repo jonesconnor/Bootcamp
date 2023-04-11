@@ -1,0 +1,39 @@
+<mat-accordion class="example-headers-align" multi>
+  <div *ngIf="isLoading">
+    <mat-progress-spinner
+      mode="indeterminate"
+      style="margin: auto; margin-top: 2rem"
+    ></mat-progress-spinner>
+  </div>
+  <div *ngIf="!isLoading">
+    <div *ngFor="let med of medications">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Medication ID: {{ med.id }} </mat-panel-title>
+          <mat-panel-description>
+            {{ med.active_ingredient }}
+            <mat-icon>medication</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Refills</mat-label>
+          <input matInput type="number" min="0" [(ngModel)]="refill" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Expiration</mat-label>
+          <input matInput type="date" [(ngModel)]="expirationDate" />
+        </mat-form-field>
+        <button mat-raised-button class="button" (click)="addMed(med)">
+          Add
+        </button>
+      </mat-expansion-panel>
+    </div>
+    <div>
+      <button mat-raised-button (click)="proceed()" id="finish-button">
+        Finish
+      </button>
+    </div>
+  </div>
+</mat-accordion>

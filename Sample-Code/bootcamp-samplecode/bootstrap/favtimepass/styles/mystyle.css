@@ -1,0 +1,24 @@
+
+
+#carouselExample img
+{
+    height: 300px;
+}
+
+.clscontainer
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.row img
+{
+    width: 150px;
+    height: 150px;
+}
+
+p
+{
+    font-family: 'Sassy Frass', cursive;
+}

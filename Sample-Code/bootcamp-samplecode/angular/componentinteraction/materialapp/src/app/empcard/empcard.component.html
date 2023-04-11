@@ -1,0 +1,25 @@
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Employee</mat-card-title>
+          <mat-card-subtitle>Id is : {{emp.id}}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <p id="pname">{{emp.empName}}</p>
+          <p>
+            {{emp.role}}
+          </p>
+        </mat-card-content>
+        <div>
+        <button (click)="delete()" mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+     
+        <button (click)="update()"  mat-fab color="primary">Update</button>
+
+        <button (click)="sendCount()">Send Data</button>
+        </div>
+      </mat-card>
+</div>

@@ -1,0 +1,110 @@
+asynchronous call
+
+fetch API
+
+	request
+	response
+
+request --http request
+			methods: GET,POSt,PUT,DELETE
+			body   : post, data you want to store
+			header : tokens for authentication
+		
+
+response - Promise
+
+	 Promise object -- resolve / reject
+			   success    failure
+		
+
+
+http request
+	    REST API -- to interact with backend resource
+
+	backend : json file
+	
+	json-server -- fake rest api for the given json file
+
+	to access the resource
+	
+		localhost:3000/nameofjson  - REST API URI
+			
+		http request calls to interact with the rest api uri
+
+   json-server, home page file should be inside /public/index.html
+
+	localhost:3000   -- pick up the index.html file from public folder 
+
+ fetch(restapiurl).then(  res => 
+				{
+				if (res.code==201 )
+
+				else
+					
+							
+				}
+			) 
+	          .catch(
+				(err)=>
+				{
+			console.log
+				}	
+			 )
+
+
+			
+					request				response (promise)
+			methods
+restapi url	-->	POST	--> request body in form of json	 object
+			GET	-->  					 readable stream-> collection of data
+			DELETE --> url along with id to be delete	 object 
+			
+
+
+Logic
+
+
+view -> fetch the data using get call (server hit)  and store the data in local array
+
+	use local array and display data in table format -
+
+
+add -> get the data from user using input text box 
+	keep the data in json format 
+	 using POST call (server hit) store in json file
+	 pushing the new element in the local array
+	display array in table format
+
+delete -> 	get the id of element to be deleted
+		using fetch call , remove the element from json file (server hit)
+		remove the element based on the id  from the local array
+		display array in table format
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

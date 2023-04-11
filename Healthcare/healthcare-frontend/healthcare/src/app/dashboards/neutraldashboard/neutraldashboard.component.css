@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+.registercard {
+  max-width: 80%;
+  margin: auto;
+}
+
+.parallax {
+  margin-bottom: 0;
+  background: url("../../../assets/hero-bg-mobile.webp") 50% 60% / cover
+    no-repeat;
+  min-height: 600px;
+  background-attachment: fixed;
+}
+
+.hero-banner__title {
+  font-size: clamp(2.5rem, 10vw, 5rem);
+  font-family: "Anton", sans-serif;
+  letter-spacing: 0.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.lead {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+.hero-banner__overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  padding: 10rem 2rem;
+}
+
+.register-now {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 300;
+  margin-top: 2.5rem;
+}
+
+.overlay {
+  color: #fff;
+  position: absolute;
+  z-index: 12;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.container {
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.row > section {
+  padding: 3rem;
+}
+
+hr {
+  border-top: 1px solid var(--color-dark-blue);
+  opacity: 0.15;
+}
+
+.row .who-we-are,
+.row .how-we-help,
+.row .what-makes,
+.row .for-providers {
+  order: 1;
+  padding: 10rem 3rem;
+}
+
+.who-we-are__title,
+.how-we-help__title,
+.what-makes__title,
+.for-providers__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-dark-blue);
+}
+
+.who-we-are__para,
+.how-we-help__para,
+.what-makes__para,
+.for-providers__para {
+  line-height: 2;
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+.who-we-are {
+  background: url("../../../assets/who-we-are.webp") 50% 50% / cover no-repeat;
+}
+
+.how-we-help {
+  background: url("../../../assets/how-we-help.jpg") 50% 50% / cover no-repeat;
+}
+
+.what-makes {
+  background: url("../../../assets/what-makes.webp") 50% 50% / cover no-repeat;
+}
+
+.for-providers {
+  background: url("../../../assets/for-provider.webp") 50% 50% / cover no-repeat;
+}
+
+@media screen and (min-width: 1024px) {
+  .parallax {
+    background: url("../../../assets/hero-bg-desktop.webp") 50% 10% / cover
+      no-repeat;
+    background-attachment: fixed;
+  }
+
+  .register-now {
+    margin-top: 4rem;
+  }
+
+  .row .who-we-are,
+  .row .how-we-help,
+  .row .what-makes,
+  .row .for-providers {
+    order: 0;
+    padding: 3rem;
+  }
+}

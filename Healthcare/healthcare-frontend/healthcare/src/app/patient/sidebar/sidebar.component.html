@@ -1,0 +1,40 @@
+<ul class="sidenav__actions">
+  <li>
+    <a routerLink="/patientdash">
+      <span class="material-symbols-outlined"> dashboard </span>
+      <span>Dashboard</span>
+    </a>
+  </li>
+  <li>
+    <a routerLink="/patientprofile">
+      <span class="material-symbols-outlined">
+        <mat-icon matSuffix>assignment_ind</mat-icon></span
+      >
+      <span>My Profile</span>
+    </a>
+  </li>
+  <li>
+    <a (click)="onMedicalHistory()">
+      <span class="material-symbols-outlined">
+        <mat-icon matSuffix>assessment</mat-icon>
+      </span>
+      <span>My Medical History</span>
+    </a>
+  </li>
+  <li>
+    <a (click)="onPrescription()">
+      <span class="material-symbols-outlined">
+        <mat-icon matSuffix>free_breakfast</mat-icon>
+      </span>
+      <span>My Prescription</span>
+    </a>
+  </li>
+  <li>
+    <a (click)="onPaymentHistory()">
+      <span class="material-symbols-outlined">
+        <mat-icon matSuffix>account_balance</mat-icon>
+      </span>
+      <span>My Payment History</span>
+    </a>
+  </li>
+</ul>

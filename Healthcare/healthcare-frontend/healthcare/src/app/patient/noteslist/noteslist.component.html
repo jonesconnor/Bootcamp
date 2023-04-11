@@ -1,0 +1,12 @@
+<div class="notification-panel__wrapper">
+    <aside class="notification-panel" [ngClass]="{ opened: togglePanel }">
+      <button type="button" class="btn-close" (click)="closePanel()">
+        <span class="material-symbols-outlined"> X </span>
+      </button>
+      <app-notification
+        class="notifications"
+        (notificationDeleted)="sendNoOfNotifications($event)"
+      ></app-notification>
+    </aside>
+  </div>
+  

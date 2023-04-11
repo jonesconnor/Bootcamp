@@ -1,0 +1,124 @@
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar__title {
+    margin: 0;
+    color: var(--color-white);
+  }
+  
+  .navbar__menu {
+    display: flex;
+  }
+  
+  .navbar__menu-items {
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+  
+  .header__user-account {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-account__actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar__menu,
+  .user-account__actions {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .action__items {
+    margin-left: 1rem;
+  }
+  
+  .navbar__menu-items > a,
+  .action__items > a {
+    text-decoration: none;
+    color: #fefefe;
+    position: relative;
+  }
+  
+  .action__items > a::before,
+  .navbar__menu-items > a::before {
+    content: "";
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-white);
+    transition: width 0.3s;
+  }
+  
+  .action__items > a:focus::before,
+  .navbar__menu-items > a:focus::before,
+  .action__items > a:hover::before,
+  .navbar__menu-items > a:hover::before {
+    width: 100%;
+  }
+  
+  .action__items > a:focus,
+  .navbar__menu-items > a:focus {
+    outline: none;
+  }
+  
+  .btn-notifications,
+  .btn-logout {
+    appearance: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: var(--color-white);
+  }
+  
+  .btn-notifications:hover {
+    cursor: pointer;
+  }
+  
+  .btn-notifications .material-symbols-outlined {
+    transition: color 0.3s;
+  }
+  
+  .btn-notifications:focus .material-symbols-outlined,
+  .btn-notifications:hover .material-symbols-outlined {
+    color: var(--color-white);
+  }
+  
+  .btn-logout {
+    font-size: 0.875rem;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    border: 1px solid var(--color-white);
+    border-radius: 4px;
+    padding: 0.25rem 0.75rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-logout:hover {
+    cursor: pointer;
+  }
+  
+  .btn-logout:hover,
+  .btn-logout:focus {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+  }
+  

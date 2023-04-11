@@ -1,0 +1,117 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"); */
+
+:root {
+  --color-primary: #673ab7;
+  --color-primary-light: #673ab7e0;
+  --color-secondary: #56727f;
+  --color-secondary-light: #56727fe0;
+  --color-white: #ffffff;
+  --color-accent: #ffd740;
+  --color-warn: #f44336;
+  --color-disabled: #dcdcdc;
+  --color-dark-blue: #2c3e50;
+  --color-dark-blue-75: #2c3e50bf;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+main {
+  /* 136px is the combined height of the header and footer */
+  min-height: calc(100vh - 136px);
+  margin-bottom: 3rem;
+}
+
+/* Styles for calendar component */
+.fc .fc-toolbar-title {
+  color: var(--color-dark-blue);
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+}
+
+.fc-theme-standard .fc-scrollgrid {
+  border-color: var(--color-dark-blue);
+}
+
+.fc table thead > tr {
+  background-color: var(--color-dark-blue);
+}
+
+.fc table tbody > td {
+  border-left-color: var(--color-dark-blue);
+}
+
+.fc table thead .fc-col-header-cell > div {
+  padding: 0.25rem 0;
+}
+
+.fc table tr a {
+  color: var(--color-dark-blue);
+  text-decoration: none;
+}
+
+.fc table thead tr a {
+  color: var(--color-white);
+  font-size: 1rem;
+}
+
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border: 1px solid var(--color-dark-blue);
+}
+
+.fc-scroller::-webkit-scrollbar {
+  width: 20px;
+}
+
+.fc-scroller::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.fc-scroller::-webkit-scrollbar-thumb {
+  background-color: var(--color-dark-blue-75);
+}
+
+.fc-scroller::-webkit-scrollbar-thumb {
+  background-color: var(--color-dark-blue-75);
+  border-radius: 20px;
+}
+
+.fc-scroller::-webkit-scrollbar-thumb {
+  background-color: var(--color-dark-blue-75);
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+.fc,
+.fc-scrollgrid-sync-table {
+  width: 100%;
+  max-height: 30rem;
+}
+
+.fc {
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 481px) {
+  .fc-toolbar .fc-toolbar-chunk:last-child {
+    display: none;
+  }
+
+  .fc,
+  .fc-scrollgrid-sync-table {
+    min-width: calc(30rem - 2rem);
+  }
+
+  .fc {
+    max-height: 20rem;
+  }
+}

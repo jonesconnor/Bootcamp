@@ -1,0 +1,19 @@
+<mat-action-list class="notification-list__wrapper">
+  <div *ngIf="notifications.length > 0; else elseBlock">
+    <mat-list-item
+      *ngFor="let notification of notifications"
+      class="notifications-list"
+      lines="3"
+      (click)="removeNotification(notification)"
+    >
+      <mat-icon matListItemIcon class="icon-alert">
+        notifications_active
+      </mat-icon>
+      <h3 matListItemTitle></h3>
+      <p matListItemLine class="notification__content">{{ notification }}</p>
+    </mat-list-item>
+  </div>
+  <ng-template #elseBlock>
+    <p class="message">You have no active notifications</p>
+  </ng-template>
+</mat-action-list>

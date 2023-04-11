@@ -1,0 +1,25 @@
+
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Personal data
+      </mat-panel-title>
+      <mat-panel-description>
+      Enter Name and Password
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  <div class="clsform">
+    <mat-form-field appearance="fill">
+      <mat-label>username</mat-label>
+      <input matInput #uname>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>password</mat-label>
+      <input matInput type="password" min="6" #pwd>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="signin(uname.value,pwd.value)">SignIn</button>
+  </div>
+  </mat-expansion-panel>

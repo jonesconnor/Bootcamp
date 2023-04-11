@@ -1,0 +1,108 @@
+version: '3.7'
+
+services:
+  mysqls:
+    image: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: HealthcareDB
+      MYSQLURL: jdbc:mysql://mysqls:3306/HealthcareDB?createDatabaseIfNotExist=true&user=root&password=rootpassword
+  
+<<<<<<< HEAD
+=======
+  mongos:
+    image: mongo
+    restart: always
+    environment:
+      MONGOURL: mongodb://mongos:27017/HealthcareDB
+>>>>>>> origin/payments
+  
+  eurekaservice:
+    image: sofiascholefield/eurekaserverimg
+    restart: always
+    ports:
+      - 8761:8761
+    environment:
+      EUREKAURL: http://eurekaservice:8761/eureka
+  
+  authentication:
+<<<<<<< HEAD
+    image: authimg
+=======
+    image: mitchelkuzniar/authimg
+    restart: on-failure
+>>>>>>> origin/payments
+    ports:
+      - 1337:1337
+    depends_on:
+      - mysqls
+<<<<<<< HEAD
+=======
+      - eurekaservice
+  
+  medicalrecord:
+    image: connorjonescgi/medicalrecord
+    restart: on-failure
+    ports:
+      - 9090:9090
+    depends_on:
+      - mysqls
+      - eurekaservice
+  
+  medication:
+    image: sofiascholefield/medicationimg
+    restart: on-failure
+    ports: 
+      - 9092:9092
+    depends_on:
+      - mongos
+      - eurekaservice
+  
+  payments:
+    image: emiliobarriosramirez/paymentsimg
+    restart: on-failure
+    ports:
+      - 9085:9085
+    depends_on:
+      - mongos
+      - eurekaservice
+  
+  booking:
+    image: laliacann/booking
+    restart: on-failure
+    ports:
+      - 9000:9000
+    depends_on:
+      - mongos
+      - eurekaservice
+  
+  serviceprovider:
+    image: deejayjay/cgi-capstone
+    restart: on-failure
+    ports:
+      - 9099:80
+    depends_on:
+      - mongos
+      - eurekaservice
+  
+  patient:
+    image: gptx1219/patientservice
+    restart: on-failure
+    ports:
+      - 9070:80
+    depends_on:
+      - mongos
+      - eurekaservice
+
+  reviews:
+    image: art0516/reviews
+    restart: on-failure
+    ports:
+      - 9020:80
+    depends_on:
+      - mysqls
+>>>>>>> origin/payments
+      - eurekaservice

@@ -1,0 +1,13 @@
+<app-loader
+  *ngIf="isLoading"
+  [statusMessage]="statusMessage"
+  [error]="error"
+></app-loader>
+<app-payments
+  *ngIf="!isLoading"
+  [bookingInfo]="bookingInfo"
+  [error]="error"
+  [provider]="provider"
+  [totalPrice]="totalPrice"
+  [totalHours]="totalHours"
+></app-payments>

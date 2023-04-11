@@ -1,0 +1,27 @@
+﻿version: '3.4'
+
+services:
+  mongos:  
+    image: mongo   
+    container_name: serviceproviders_db
+    restart: always
+    ports:
+      - "27017:27017"
+  
+  serviceprovider:
+    image: ${DOCKER_REGISTRY-}serviceprovidersservice
+    container_name: serviceproviders_api
+    restart: on-failure
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DbSettings:ConnectionString=mongodb://mongos:27017
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mongos      
+    ports:
+      - "9099:80"
+
+volumes:
+  mongo_data:

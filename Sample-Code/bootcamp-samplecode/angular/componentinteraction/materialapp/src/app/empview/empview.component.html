@@ -1,0 +1,16 @@
+<section>
+<h3 class="clsh3">List of Employees</h3>
+ <div class="clscard">
+
+  
+<div *ngFor="let empobj of employees">
+
+    <app-empcard [emp]="empobj" (changeData)="display($event)"></app-empcard>
+
+
+</div>
+
+Data from Child component is {{this.count}}
+
+</div>
+</section>

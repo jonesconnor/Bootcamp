@@ -1,0 +1,26 @@
+﻿version: '3.4'
+
+services:
+  mongos:  
+    image: mongo   
+    container_name: healthdb
+    restart: always
+    ports:
+      - 27017:27017
+  patientservice:
+    image: ${DOCKER_REGISTRY-}patientservice
+    restart: on-failure
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - PatientDbDatabase:ConnectionString=mongodb://mongos:27017
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mongos
+
+    ports:
+      - 9070:80
+
+volumes:
+  mongo_data:

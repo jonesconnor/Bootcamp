@@ -1,0 +1,35 @@
+.dialog__title {
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+  padding: 0.25rem 1rem;
+}
+
+.patient-name {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.actions__wrapper {
+  margin: 2rem 0 1rem;
+  text-align: center;
+}
+
+.btn__action {
+  margin: 0 0.5rem;
+}
+
+.meeting-link {
+  padding: 1rem;
+  background-color: var(--color-primary);
+  margin: 2rem 0 0;
+  border-radius: 0.25rem;
+  font-size: 1.25rem;
+}
+
+.meeting-link button {
+  color: var(--color-white);
+  appearance: none;
+  outline: none;
+  background-color: transparent;
+  border: none;
+}

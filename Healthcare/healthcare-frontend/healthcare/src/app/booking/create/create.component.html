@@ -1,0 +1,129 @@
+<body>
+  <mat-drawer-container class="side" color="primary">
+    <mat-drawer mode="side" opened></mat-drawer>
+    <button mat-button (click)="closeComponent()">Return to search</button>
+  </mat-drawer-container>
+
+  <div class="outercard">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Book an Appointment</mat-card-title>
+      </mat-card-header>
+      <mat-card-content [formGroup]="form">
+        <mat-card class="provCard">
+          <mat-card-header>
+            <mat-card-title class="cardTitle"
+              >{{ provider.firstName }} {{ provider.lastName }}</mat-card-title
+            >
+            <mat-card-subtitle class ="cardSub">{{ provider.specialization }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="cardcontent">
+            <p class="link" (click)="goToSPReviews(provider.id!)">Average Rating: {{ provider.averageRating }}</p>
+            <p>Location: {{ provider.location }}</p>
+            <p>Hourly Rate: {{ provider.fee }}</p>
+          </mat-card-content>
+        </mat-card>
+
+                <mat-form-field>
+                    <mat-label>Purpose of appointment</mat-label>
+                    <input matInput class="form-control" formControlName="subject" type="text" />
+                    <mat-icon matSuffix>medical_information</mat-icon>
+                    <mat-error *ngIf="form.controls['subject'].hasError('required') || form.controls['subject'].hasError('whitespace')">
+                        Purpose of appointment is Required
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Location of appointment</mat-label>
+                    <input matInput class="form-control" formControlName="location" type="text"[(ngModel)]=" booking.location" readonly />
+                    <mat-icon matSuffix>location_on</mat-icon>
+                    <mat-error *ngIf="form.controls['location'].hasError('required')">
+                        Location of appointment is Required
+                    </mat-error>
+                </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Date of appointment</mat-label>
+          <input
+            matInput
+            formControlName="bookingDate"
+            [matDatepickerFilter]="myFilter"
+            [matDatepicker]="dp1"
+          />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="dp1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #dp1></mat-datepicker>
+          <mat-error *ngIf="form.controls['bookingDate'].hasError('required')">
+            Date of appointment is Required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <!--                    <input matInput class="form-control" formControlName="bookingTime" type="text" /> -->
+
+          <mat-label>Time of appointment</mat-label>
+          <mat-select formControlName="bookingTime">
+            <mat-option *ngFor="let time of times" [value]="time">
+              {{ time }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix>schedule</mat-icon>
+          <mat-error *ngIf="form.controls['bookingTime'].hasError('required')">
+            Time of appointment is Required
+          </mat-error>
+        </mat-form-field>
+        <div class="appcheck">
+          <mat-label id="recurtext">Is this a repeating appointment?</mat-label>
+          <mat-checkbox (change)="check = (check + 1) % 2"></mat-checkbox>
+        </div>
+        <span *ngIf="check">
+          <mat-form-field>
+            <mat-label>How often will the appointment repeat?</mat-label>
+            <mat-select class="form-control" formControlName="recurrenceType">
+              <span *ngFor="let type of types">
+                <mat-option [value]="type">{{ type }}</mat-option>
+              </span>
+            </mat-select>
+            <mat-error
+              *ngIf="form.controls['recurrenceType'].hasError('required')"
+            >
+              This field is requied for repeating appointments
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>End date for repeat</mat-label>
+            <input
+              matInput
+              formControlName="recurrenceEndDate"
+              [matDatepickerFilter]="myFilter"
+              [matDatepicker]="dp1"
+            />
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="dp1"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #dp1></mat-datepicker>
+            <mat-error
+              *ngIf="form.controls['recurrenceEndDate'].hasError('required')"
+            >
+              End date is required for repeating appointments
+            </mat-error>
+          </mat-form-field>
+          {{ message }}
+        </span>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          type="submit"
+          (click)="onSubmit()"
+          color="accent"
+        >
+          Request Appointment
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</body>

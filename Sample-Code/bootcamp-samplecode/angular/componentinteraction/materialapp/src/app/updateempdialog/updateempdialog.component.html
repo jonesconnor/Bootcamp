@@ -1,0 +1,26 @@
+
+<div>
+    <h3 mat-dialog-title>Update Employee</h3>
+  <form>
+ <div class="clsform">
+
+ id {{empobj.id}}
+empname <input name="empname" [(ngModel)]="empobj.empName">
+role <input name="role" [(ngModel)]="empobj.role">
+
+<button (click)="update()">Update</button>
+<button mat-button mat-dialog-close>Cancel</button>
+
+ </div>
+
+
+
+
+
+  </form>
+
+
+
+
+
+</div>

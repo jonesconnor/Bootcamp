@@ -1,0 +1,77 @@
+<div>
+  <mat-card class="mat-blue-grey">
+    <mat-card-header style="justify-content: center">
+      <mat-card-title
+        ><i class="fa-sharp fa-solid fa-money-bill"></i> All received Payments
+      </mat-card-title>
+    </mat-card-header>
+    <div class="top">
+      <mat-form-field class="search__wrapper">
+        <input
+          matInput
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          aria-describedby="search-addon"
+          [(ngModel)]="searchtext"
+          id="st"
+        />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  </mat-card>
+</div>
+<div style="width: 100%; overflow-x: auto">
+  <table
+    mat-table
+    [dataSource]="dataSource.data | search : searchtext"
+    class="mat-elevation-z8"
+  >
+    <ng-container matColumnDef="bookingId">
+      <th mat-header-cell *matHeaderCellDef>Booking #</th>
+      <td mat-cell *matCellDef="let payment">{{ payment.receiptId }}</td>
+    </ng-container>
+    <ng-container matColumnDef="payerId">
+      <th mat-header-cell *matHeaderCellDef>Patient ID</th>
+      <td mat-cell *matCellDef="let payment">{{ payment.payerId }}</td>
+    </ng-container>
+    <ng-container matColumnDef="serviceType">
+      <th mat-header-cell *matHeaderCellDef>Service</th>
+      <td mat-cell *matCellDef="let payment">{{ payment.serviceType }}</td>
+    </ng-container>
+    <ng-container matColumnDef="hours">
+      <th mat-header-cell *matHeaderCellDef># of hours</th>
+      <td mat-cell *matCellDef="let payment">{{ payment.hours }}</td>
+    </ng-container>
+    <ng-container matColumnDef="pricePerHour">
+      <th mat-header-cell *matHeaderCellDef>$ per hour</th>
+      <td mat-cell *matCellDef="let payment">
+        {{
+          payment.pricePerHour | currency : "CAD" : "symbol-narrow" : "1.2-2"
+        }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Payment Status</th>
+      <td mat-cell *matCellDef="let payment">
+        {{ payment.status | paymentStatus }}
+      </td>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let payment">
+          <!--Pending status possible action-->
+          <button
+            *ngIf="payment.status === 2"
+            mat-raised-button
+            color="warn"
+            (click)="refundPayment(payment.paymentToken)"
+          >
+            Refund
+          </button>
+        </td>
+      </ng-container>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: tableColumns"></tr>
+  </table>
+</div>

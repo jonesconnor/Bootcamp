@@ -1,0 +1,27 @@
+main {
+    margin-bottom: 2rem;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.tablebody{
+
+    width: 80%;
+    text-align: center;
+}
+app-sidebar{
+    margin: 1rem;
+}
+@media only screen and (min-width: 1024px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .tablebody{
+        margin-top: 10rem;
+
+    }
+  }

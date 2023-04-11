@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: antiquewhite;">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Service Providers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">My Calendar</a>
+            </li>
+        </ul>
+
+        <div >
+            <a class="navbar-text" href="#">
+                Login
+            </a>
+            <a class="navbar-text" href="#">
+                Register
+            </a>
+        </div>
+      </div>
+    </div>
+</nav>
+
+<div class="container my-4">
+    <form [formGroup]="formvalue">
+        <div class="form-group">
+            <div class="row">
+                <div class="input-group col">
+                    <input formControlName="firstname" type="text" id="txtFirstname" class="form-control" placeholder="First Name" name="txtFirstname">
+                </div>
+                <div class="input-group col">
+                    <input formControlName="lastname" type="text" id="txtLastname" class="form-control" placeholder="Last Name" name="txtLastname">                
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-group col">
+                    <input formControlName="email" type="text" id="txtEmail" class="form-control" placeholder="Email" name="txtEmail">               
+                </div>
+                <div class="input-group col">
+                    <input formControlName="phone" type="text" id="txtPhone" class="form-control" placeholder="Phone Number" name="txtPhone">                
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-group col">
+                    <input formControlName="address" type="text" id="txtAddress" class="form-control" placeholder="Street Address" name="txtAddress">                
+                </div>
+                
+            </div>
+            
+
+            <div class="row">
+                <div class="input-group col">
+                    <input formControlName="city" type="text" id="txtCity" class="form-control" placeholder="City" name="txtCity">                
+                </div>
+                <div class="input-group col">
+                    <input formControlName="postcode" type="text" id="txtPostcode" class="form-control" placeholder="Postal Code" name="txtPostcode">                
+                </div>  
+            </div>
+
+            <div class="row">
+                <div class="input-group col">
+                    <input formControlName="phaemacyphone" type="text" id="txtPhaemacyPhone" class="form-control" placeholder="Phaemacy Phone" name="txtPhaemacyPhone"> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group col">
+                    <input formControlName="phn" type="text" id="txtPhn" class="form-control" placeholder="PHN" name="txtPhn"> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group col">
+                    <input formControlName="password" type="text" id="txtPassword" class="form-control" placeholder="Password" name="txtPassword"> 
+                </div>
+            </div>
+                       
+        </div>
+    </form>
+    <div class="register-button">
+        <button type="button" class="btn btn-outline-dark" (click)="addPatient()">Register</button>
+    </div>
+    
+</div>

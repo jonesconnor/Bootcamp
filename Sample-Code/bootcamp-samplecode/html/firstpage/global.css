@@ -1,0 +1,87 @@
+
+body,h1,h3
+{
+    margin: 0px;
+}
+
+
+body
+{
+    background: lightsteelblue;
+}
+h1
+{
+    margin-bottom: 20px;
+}
+header
+{
+    background: salmon;
+    text-align: center;
+}
+.clsanc
+{
+ 
+    text-decoration: none;
+    border: 3px solid white;
+}
+
+.clstop
+{
+  text-align: center;
+  background: url('./images/top1.jpg');
+  height: 300px;
+  background-attachment: fixed;
+}
+div
+{
+    background: wheat;
+    border: 3px dotted red;
+}
+
+#img1
+{
+    width: 150px;
+    height: 150px;
+}
+
+.clsa1
+{
+    /* display: block; */
+    margin: auto;
+    text-decoration: none;
+
+}
+
+a:hover
+{
+    color: green;
+}
+.clspara
+{
+    display: inline;
+
+    
+}
+.clsbut
+{
+
+    display: block;
+    margin: 0px auto;
+}
+button:hover
+{
+    background: yellow;
+}
+
+.clsbottom
+{
+    text-align: center;
+    background: url('./images/bottom1.png');
+    height: 500px;
+}
+
+.clsli
+{
+ width: 150px;
+ margin: 0px auto;
+}

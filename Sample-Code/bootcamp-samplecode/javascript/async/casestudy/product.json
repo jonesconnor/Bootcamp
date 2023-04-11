@@ -1,0 +1,14 @@
+{
+  "product": [
+    {
+      "id": 3,
+      "pname": "Printer",
+      "company": "HP"
+    },
+    {
+      "id": "90",
+      "pname": "AC",
+      "company": "Fivestar"
+    }
+  ]
+}

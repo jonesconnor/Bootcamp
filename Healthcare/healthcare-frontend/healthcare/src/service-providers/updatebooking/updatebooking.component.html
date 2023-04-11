@@ -1,0 +1,84 @@
+<main>
+<div class="main__container">
+    <section class="content">
+    <div class="update_wrapper">
+      <h2 class="update__title">Update Appointment Details</h2>
+
+    <form class="update__form" [formGroup]="form">
+
+<!--         <mat-card class="patientinfo">
+            <mat-card-header>
+                <mat-card-title>{{provider.firstName}} {{provider.lastName}}</mat-card-title>
+                <mat-card-subtitle>{{provider.specialization}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Average Rating: {{provider.averageRating}}</p>
+                <p>Location: {{provider.location}}</p>
+                <p>Fee: {{provider.fee}}</p>
+            </mat-card-content>
+        </mat-card> -->
+
+        <mat-form-field>
+            <mat-label>Purpose of appointment</mat-label>
+            
+            <input matInput class="form-control" formControlName="subject" type="text" />
+            <mat-icon matSuffix>medical_information</mat-icon>
+            <mat-error *ngIf="form.controls['subject'].hasError('required') || form.controls['subject'].hasError('whitespace')">
+                Purpose of appointment is Required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Location of appointment</mat-label>
+            <input matInput class="form-control" formControlName="location" type="text" />
+            <mat-icon matSuffix>location_on</mat-icon>
+            <mat-error *ngIf="form.controls['location'].hasError('required') || form.controls['location'].hasError('whitespace')">
+                Location of appointment is Required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Date of appointment</mat-label>
+            <input matInput formControlName="bookingDate" [matDatepickerFilter]="myFilter"
+                [matDatepicker]="dp1">
+            <mat-datepicker-toggle matIconSuffix [for]="dp1"></mat-datepicker-toggle>
+            <mat-datepicker #dp1></mat-datepicker>
+            <mat-error *ngIf="form.controls['bookingDate'].hasError('required')">
+                Date of appointment is Required
+            </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field>
+
+            <mat-label>Time of appointment</mat-label>
+            <mat-select class="form-control" formControlName="bookingTime">
+                
+          
+                <span *ngFor="let time of times"> 
+                        <mat-option [value]="time">{{time}}</mat-option>
+                </span>
+            </mat-select>
+            <mat-icon matSuffix>schedule</mat-icon>
+            <mat-error *ngIf="form.controls['bookingTime'].hasError('required')">
+                Time of appointment is Required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Duration of appointment (minutes)</mat-label>
+            <input matInput class="form-control" formControlName="duration" type="number" />
+           <!--  <mat-icon>timer</mat-icon> -->
+            <mat-error *ngIf="form.controls['duration'].hasError('required')">
+                Duration of appointment is Required
+            </mat-error>
+        </mat-form-field>
+        <section class="buttons">
+        <button mat-raised-button class = "btn-update" type="submit" (click)="onSubmit()" color="accent">Save Updated Appointment</button>
+        <button mat-raised-button class = "btn-cancel"  (click)="handleUndo()" color="accent">Cancel Changes</button>
+        </section>    
+    </form>
+    </div>
+</section>
+</div>
+</main>
+
+

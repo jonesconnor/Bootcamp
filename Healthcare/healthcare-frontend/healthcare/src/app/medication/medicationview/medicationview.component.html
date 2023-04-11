@@ -1,0 +1,49 @@
+<div class="top">
+  <mat-form-field class="input__search">
+    <mat-label>Search by Keyword</mat-label>
+    <input matInput placeholder="Ex. Antibacterial" [(ngModel)]="searchtext" />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <p id="disSearch">{{ searchtext }}</p>
+</div>
+
+<div class="container">
+  <div *ngIf="isLoading">
+    <mat-progress-spinner
+      mode="indeterminate"
+      style="margin: auto; margin-top: 2rem"
+    ></mat-progress-spinner>
+  </div>
+  <div class="row wrap" *ngIf="!isLoading">
+    <div
+      class="col-md-4 mb-3"
+      *ngFor="let me of medications | searchpipe : searchtext"
+    >
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-subtitle>Medication ID</mat-card-subtitle>
+          <mat-card-title>{{ me.id }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="purpose" matTooltip="{{ me.purpose }}">{{ me.purpose }}</p>
+          <p class="active" matTooltip="{{ me.active_ingredient }}">
+            {{ me.active_ingredient }}
+          </p>
+          <mat-divider></mat-divider>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            color="amber"
+            mat-raised-button
+            id="idbutton"
+            (click)="viewMore(me)"
+          >
+            Show More
+          </button>
+        </mat-card-actions>
+
+        <mat-card-footer> </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+</div>

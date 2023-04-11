@@ -1,0 +1,44 @@
+<main>
+
+<div *ngIf="!openbooking">
+    <div class="cent">
+        <h1 class="page_title">All Service Providers</h1>
+        
+        <mat-form-field class="search">
+    <input matInput [(ngModel)]="searchText" type="text" placeholder="Search Providers" />
+    <mat-icon matSuffix >search</mat-icon>
+        </mat-form-field>    
+</div>
+<!--     <mat-grid-list class="content" cols="5" rowHeight="1:1"> -->
+<div class="content"  >
+<div *ngFor="let provider of serviceproviders | searchfilter: []:searchText">
+<!--     <mat-grid-tile> -->
+    <mat-card class = "provCard" >
+        <mat-card-header >
+        <mat-card-title class="cardTitle"> {{provider.firstName}} {{provider.lastName}}</mat-card-title>
+        <mat-card-subtitle class ="cardSub">{{provider.specialization}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="cardcontent">
+        <p class="link" (click)="goToSPReviews(provider.id)">Average Rating:   {{provider.averageRating}}</p>
+        <p><span >Location:</span>   {{provider.location}}</p>
+         <p><span >Hourly Rate:</span>   ${{provider.fee}}</p>
+        </mat-card-content>
+        <mat-card-actions class="btn">
+        <button mat-raised-button
+        color="accent"(click)="openbooking = true; clickedprovider = provider" [hidden]="role==='Admin'">Book Appointment</button>
+        <button mat-raised-button (click)="deleteSP(provider.firstName,provider.lastName,provider.email,provider.id)" [hidden]="role!='Admin'" color="warn">Delete</button>
+        </mat-card-actions>
+    </mat-card>
+<!--     </mat-grid-tile> -->
+</div>
+</div>
+<!-- </mat-grid-list> -->
+</div>
+
+
+<div *ngIf="openbooking">
+    <app-create (state)="onclose($event)" [provider]="clickedprovider"></app-create>
+</div>
+
+</main>
+

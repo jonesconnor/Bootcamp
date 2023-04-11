@@ -1,0 +1,314 @@
+<main>
+  <div class="container">
+    <app-sidebar></app-sidebar>
+    <div class="profileform">
+      <form [formGroup]="formvalue">
+        <div class="form-body">
+          <div class="row">
+            <div>
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>First Name</mat-label>
+                <input
+                  matInput
+                  formControlName="firstname"
+                  type="text"
+                  id="txtFirstname"
+                  placeholder="First Name"
+                  name="txtFirstname"
+                />
+                <div
+                  *ngIf="
+                    formvalue.controls['firstname'].touched &&
+                    !formvalue.controls['firstname'].valid
+                  "
+                  class="alert alert-danger"
+                >
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['firstname'].hasError('required')"
+                  >
+                    First name is required
+                  </span>
+                  <span
+                    class="errorMessage"
+                    *ngIf="
+                      formvalue.controls['firstname'].hasError('minlength')
+                    "
+                  >
+                    Min length is 2
+                  </span>
+                  <span
+                    class="errorMessage"
+                    *ngIf="
+                      formvalue.controls['firstname'].hasError('maxlength')
+                    "
+                  >
+                    max length is 30
+                  </span>
+                </div>
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Last Name</mat-label>
+                <input
+                  matInput
+                  formControlName="lastname"
+                  type="text"
+                  id="txtLastname"
+                  placeholder="Last Name"
+                  name="txtLastname"
+                />
+                <div
+                  *ngIf="
+                    formvalue.controls['lastname'].touched &&
+                    !formvalue.controls['lastname'].valid
+                  "
+                  class="alert alert-danger"
+                >
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['lastname'].hasError('required')"
+                  >
+                    Last name is required
+                  </span>
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['lastname'].hasError('minlength')"
+                  >
+                    Min length is 2
+                  </span>
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['lastname'].hasError('maxlength')"
+                  >
+                    max length is 30
+                  </span>
+                </div>
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Email</mat-label>
+                <input
+                  matInput
+                  formControlName="email"
+                  type="text"
+                  id="txtEmail"
+                  placeholder="Email"
+                  name="txtEmail"
+                  readonly
+                />
+                <div
+                  *ngIf="
+                    formvalue.controls['email'].touched &&
+                    !formvalue.controls['email'].valid
+                  "
+                  class="alert alert-danger"
+                >
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['email'].hasError('required')"
+                  >
+                    Email is required
+                  </span>
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['email'].hasError('email')"
+                  >
+                    Invalid Email
+                  </span>
+                </div>
+                <mat-icon matSuffix>mail</mat-icon>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Phone Number</mat-label>
+                <input
+                  matInput
+                  formControlName="phone"
+                  type="text"
+                  id="txtPhone"
+                  placeholder="Phone Number"
+                  name="txtPhone"
+                />
+                <div
+                  *ngIf="
+                    formvalue.controls['phone'].touched &&
+                    !formvalue.controls['phone'].valid
+                  "
+                  class="alert alert-danger"
+                >
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['phone'].hasError('required')"
+                  >
+                    First name is required
+                  </span>
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['phone'].hasError('pattern')"
+                  >
+                    Invalid Phone Number
+                  </span>
+                </div>
+                <mat-icon matSuffix>phone</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Street Address</mat-label>
+                <input
+                  matInput
+                  formControlName="address"
+                  type="text"
+                  id="txtAddress"
+                  placeholder="Street Address"
+                  name="txtAddress"
+                />
+                <div
+                  *ngIf="
+                    formvalue.controls['address'].touched &&
+                    !formvalue.controls['address'].valid
+                  "
+                  class="alert alert-danger"
+                >
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['address'].hasError('required')"
+                  >
+                    Address is required
+                  </span>
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['address'].hasError('minlength')"
+                  >
+                    Min length is 5
+                  </span>
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['address'].hasError('maxlength')"
+                  >
+                    max length is 50
+                  </span>
+                </div>
+                <mat-icon matSuffix>home</mat-icon>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Pharmacy Phone</mat-label>
+                <input
+                  matInput
+                  formControlName="phaemacyphone"
+                  type="text"
+                  id="txtPhaemacyPhone"
+                  placeholder="Phaemacy Phone"
+                  name="txtPhaemacyPhone"
+                />
+                <mat-icon matSuffix>phone</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>City</mat-label>
+                <input
+                  matInput
+                  formControlName="city"
+                  type="text"
+                  id="txtCity"
+                  placeholder="City"
+                  name="txtCity"
+                />
+                <div
+                  *ngIf="
+                    formvalue.controls['city'].touched &&
+                    !formvalue.controls['city'].valid
+                  "
+                  class="alert alert-danger"
+                >
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['city'].hasError('required')"
+                  >
+                    City is required
+                  </span>
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['city'].hasError('minlength')"
+                  >
+                    Min length is 2
+                  </span>
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['city'].hasError('maxlength')"
+                  >
+                    max length is 30
+                  </span>
+                </div>
+                <mat-icon matSuffix>room icon</mat-icon>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Postal Code</mat-label>
+                <input
+                  matInput
+                  formControlName="postcode"
+                  type="text"
+                  id="txtPostcode"
+                  placeholder="Postal Code"
+                  name="txtPostcode"
+                />
+                <div
+                  *ngIf="
+                    formvalue.controls['postcode'].touched &&
+                    !formvalue.controls['postcode'].valid
+                  "
+                  class="alert alert-danger"
+                >
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['postcode'].hasError('required')"
+                  >
+                    Postal code is required
+                  </span>
+                  <span
+                    class="errorMessage"
+                    *ngIf="formvalue.controls['postcode'].hasError('pattern')"
+                  >
+                    Invalid postal code
+                  </span>
+                </div>
+                <mat-icon matSuffix>language icon</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="update-button">
+        <button
+          mat-raised-button
+          type="button"
+          color="primary"
+          (click)="updatePatient()"
+        >
+          Save Profile
+        </button>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,15 @@
+.clstemp
+{
+display: flex;
+flex-direction: column;
+width:200px;
+
+}
+
+.clscontainer
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

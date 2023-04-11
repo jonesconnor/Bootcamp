@@ -1,0 +1,29 @@
+
+<div class="clsdiv">
+ <h1> Patient Registration Form </h1>
+
+    <input [(ngModel)]="pat.patientId" placeholder="enter id">
+    <input [(ngModel)]="pat.patientName" placeholder="enter name">
+    <input [(ngModel)]="pat.addr" placeholder="enter addr">
+    <input [(ngModel)]="pat.problem" placeholder="enter problem">
+    <button (click)="addPatient()">Add</button>
+
+
+
+    <h3> List of patients are </h3>
+ 
+    <div class="clscontainer">
+    
+        <div class="card" style="width: 18rem;" *ngFor="let patient of patients ">
+           
+            <div class="card-body">
+              <h5 class="card-title">{{patient.patientId}} : {{patient.patientName}}</h5>
+              <p class="card-text">{{patient.problem}}</p>
+             <button>Delete</button>
+            </div>
+          </div>
+    
+        </div>
+
+
+</div>

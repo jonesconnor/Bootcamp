@@ -1,0 +1,66 @@
+<main>
+  <div id="payments-main">
+    <div class="half-view details">
+      <div class="container-payinfo">
+        <h1 class="payment-header">
+          <i class="fa fa-calendar"></i>
+          Details:
+        </h1>
+        <div class="info">
+          <div class="info-title">
+            <i class="fa-solid fa-hand-holding-hand"></i> Service type
+          </div>
+          <div>{{ provider.specialization | titlecase }}</div>
+        </div>
+        <div class="info">
+          <div class="info-title">
+            <i class="fa-solid fa-clock"></i> Number of hours
+          </div>
+          <div>{{ totalHours }}</div>
+        </div>
+        <div class="info">
+          <div class="info-title">
+            <i class="fa-solid fa-money-check-dollar"></i> Price per hour
+          </div>
+          <div>
+            {{ provider.fee | currency : "CAD" : "symbol-narrow" : "1.2-2" }}
+          </div>
+        </div>
+        <div class="info">
+          <div class="info-title"><i class="fa-solid fa-pen"></i> Total</div>
+          <div>
+            {{ totalPrice | currency : "CAD" : "symbol-narrow" : "1.2-2" }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="half-view">
+      <div class="container-payinfo">
+        <h1 class="payment-header">
+          <i class="fa-solid fa-cart-shopping"></i>
+          Payment:
+        </h1>
+        <form id="payment-form" (ngSubmit)="handleSubmit(form)" #form="ngForm">
+          <div id="payment-element"></div>
+          <button
+            mat-raised-button
+            color="accent"
+            [disabled]="lockPayment"
+            class="btn-pay"
+          >
+            <div class="spinner hidden" id="spinner"></div>
+            <span id="button-text"
+              >Pay
+              {{
+                totalPrice | currency : "CAD" : "symbol-narrow" : "1.2-2"
+              }}</span
+            >
+          </button>
+          <div id="error-message">
+            {{ error }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

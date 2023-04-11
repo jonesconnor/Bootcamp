@@ -1,0 +1,5 @@
+FROM openjdk:17-alpine
+WORKDIR usr/src
+ADD /target/Pharmacy-0.0.1-SNAPSHOT.jar /usr/src/Pharmacy-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","Pharmacy-0.0.1-SNAPSHOT.jar"]
+ENV MONGOURL=mongodb://mongos:27017/cgitest

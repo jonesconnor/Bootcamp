@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+<bean id="productbean1" class="com.stackroute.firstapp.Product" scope="prototype">
+<property name="productId" value="100"></property>
+<property name="productName" value="Bag"></property>
+<property name="company" value="SuperSpace"></property>
+</bean>
+
+
+
+
+  <!--  property based Dependency injection  
+<bean id="customerbean" class="com.stackroute.firstapp.Customer">
+<property name="customerName" value="Dan"></property>
+<property name="product" ref="productbean1"/>
+</bean> -->
+
+
+<!--  constructor based DI 
+<bean id="customer2" class="com.stackroute.firstapp.Customer">
+<constructor-arg index="0" value="Mary"/>
+<constructor-arg name="mbl" value="11111111"/>
+<constructor-arg index="2"  ref="productbean1" />
+</bean>
+ -->
+ 
+ 
+ <bean id="customer2" class="com.stackroute.firstapp.Customer" autowire="constructor">
+ <property name="customerName" value="Paul"></property>
+ </bean>
+ 
+ 
+
+  <!--  property based Dependency injection  
+<bean id="billbean" class="com.stackroute.firstapp.Billing">
+<property name="billnumber" value="a00"/>
+<property name="billdate" value="28th Feb"/>
+<property name="product" ref="productbean"/>  
+</bean> -->
+
+
+
+<bean id="billbean" class="com.stackroute.firstapp.Billing" autowire="byType">
+<property name="billnumber" value="a00"/>
+<property name="billdate" value="28th Feb"/>
+<property name="feedback">
+<map>
+<entry key="g" value="Good"></entry>
+<entry key="m" value="Moderate"></entry>
+<entry key="s" value="Satisfactory"></entry>
+</map>
+</property>
+</bean> 
+
+
+
+</beans>

@@ -1,0 +1,33 @@
+<ul class="sidenav__actions">
+  <li *ngIf="currentRoute !== 'spdash'">
+    <a routerLink="/spdash">
+      <span class="material-symbols-outlined"> dashboard </span>
+      <span>Dashboard</span>
+    </a>
+  </li>
+  <li *ngIf="currentRoute !== 'provider/profile'">
+    <a routerLink="/provider/profile">
+      <span class="material-symbols-outlined"> account_box </span>
+      <span>My Profile</span>
+    </a>
+  </li>
+  <li *ngIf="currentRoute !== 'provider/schedule'">
+    <a routerLink="/provider/schedule">
+      <span class="material-symbols-outlined"> calendar_month </span>
+      <span>My Schedule</span>
+    </a>
+  </li>
+  <!-- <li>
+    <a href="#">
+      <span class="material-symbols-outlined"> schedule </span>
+      <span>My Availability</span>
+    </a>
+  </li> -->
+  <!-- TODO: Need to update this route when component to view provider's review is added -->
+  <li *ngIf="currentRoute !== 'reviews'">
+    <a (click)="goToReviews()">
+      <span class="material-symbols-outlined"> rate_review </span>
+      <span>My Reviews</span>
+    </a>
+  </li>
+</ul>

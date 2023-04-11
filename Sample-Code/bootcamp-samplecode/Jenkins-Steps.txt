@@ -1,0 +1,99 @@
+https://get.jenkins.io/war-stable/
+
+Link
+https://www.jenkins.io/doc/book/installing/war-file/
+
+
+
+1) 
+start the jenkins server
+ c:/program files/jenkins> java -jar ./jenkins.war
+
+
+2) open localhost:8080
+	admin
+	password
+
+
+3) Manage Jenkins
+  -> global tool configuration
+ -> add maven
+		give name as Maven_3.8.6 (same name of version)
+		 install automati -> select 
+
+
+apply and save
+
+
+change of version in java
+
+
+
+
+ manage jenkins
+ configure system
+
+	global properties
+  	environment varialbe
+
+	JAVA_HOME
+	 value: give the recent jdk version
+		C:/program file/java/jdk-17
+
+
+4) open project file in git
+
+add file and name it as Jenkinsfile
+
+use below code
+pipeline {
+        agent any
+          tools {
+        maven 'Maven_3.8.6' 
+    }
+        stages {
+            stage('Compile stage') {
+                steps {
+                   
+                        bat "mvn clean compile"
+                 
+            }
+        }
+
+             stage('testing stage') {
+                 steps  
+                   {
+                        bat "mvn test"
+                 
+            }
+        }
+
+              
+
+      }
+
+    }
+
+
+save git
+
+6) in jenkins, 
+
+	new item-> create pipeline - give some name
+		under pipeline definition
+			pipeline from scm
+
+	scm -git
+	
+	provide git ur
+		and add credentials
+	apply and save
+
+
+
+
+ then build
+
+
+
+https://www.jenkins.io/doc/pipeline/tour/getting-started/

@@ -1,0 +1,32 @@
+h3{
+    background:#FEC901;
+    
+}
+
+.butt{
+    background-color:#FEC901;
+}
+
+.warnings{
+    color:red;
+}
+
+.dosage{
+    color:blue;
+}
+
+.active{
+    color:#191970;
+}
+
+.purpose{
+    color:#6082B6;
+}
+
+.inactive{
+    color:#7393B3;
+}
+
+.ind{
+    color:#6495ED;
+}

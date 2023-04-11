@@ -1,0 +1,16 @@
+.top {
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 70%;
+}
+
+.search__wrapper {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+  .search__wrapper {
+    max-width: 1024px;
+  }
+}

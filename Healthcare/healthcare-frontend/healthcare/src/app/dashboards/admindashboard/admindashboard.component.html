@@ -1,0 +1,49 @@
+<div style="margin-top: 1rem">
+  <h1 id="main-header">
+    Business Manager Dashboard <i class="fa-solid fa-hammer"></i>
+  </h1>
+  <h2>Welcome!</h2>
+</div>
+<div id="dashboard-content">
+  <div class="card">
+    <h1 class="header-card">
+      Register Provider <i class="fa-solid fa-address-card"></i>
+    </h1>
+    <div class="card-desc">Add a new verified provider</div>
+    <div class="card-action">
+      <button mat-raised-button color="accent" (click)="SPRegister()">
+        Add
+      </button>
+    </div>
+    <img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1600" id="photo">
+  </div>
+
+  <div class="card">
+    <h1 class="header-card">
+      View Service Providers <i class="fa-solid fa-eye"></i>
+    </h1>
+    <div class="card-desc">View and Search for available Service Providers</div>
+    <div class="card-action">
+      <button mat-raised-button color="accent" (click)="goToSearchSP()">
+        Search Providers
+      </button>
+    </div>
+    <img src="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=1600" id="photo">
+  </div>
+  <div class="card">
+    <h1 class="header-card">
+      Review Payments <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+    </h1>
+    <div class="card-desc">View past, pending, and cancelled Payments</div>
+    <div class="card-action">
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="goToPaymentsDashboard()"
+      >
+        View Payments
+      </button>
+    </div>
+    <img src="https://images.pexels.com/photos/4482896/pexels-photo-4482896.jpeg?auto=compress&cs=tinysrgb&w=1600" id="photo">
+  </div>
+</div>

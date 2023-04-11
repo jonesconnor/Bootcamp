@@ -1,0 +1,27 @@
+<div>
+    <div></div>
+    <h4> Register User </h4>
+<p>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="enter name">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>enter username - firstletter caps</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>MailId</mat-label>
+      <input matInput placeholder="enter mail id">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>password must be 5 characters</mat-hint>
+    </mat-form-field>
+  </p>
+  <div class="example-button-container">
+    <button (click)="register()" mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+      <mat-icon>bookmark</mat-icon>
+    </button>
+  </div>
+
+  <a routerLink="/login">Sign In</a>
+</div>

@@ -1,0 +1,79 @@
+.cent{
+    padding-top:25px;
+  padding-left:15px;
+  text-align:center;
+  
+}
+
+.search{
+  width: 90%;
+}
+
+.link {
+    color:darkblue;
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+.cardTitle{
+  font-size: x-large;
+}
+
+.cardSub{
+  color:white;
+  font-size: large;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.provCard{
+  width: 90%;
+  height: 240px;
+  text-align: left;
+  background-color:lightslategrey;
+  color:white;
+}
+
+.cardcontent{
+  margin-top: 0px;
+  color:white;
+  font-size: larger;
+}
+
+.page__title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.btn{
+  height: 60px;
+  position: absolute;
+  bottom: 2px;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+}
+
+.content {
+  margin-top: 0rem;
+  width: calc(100% - 2rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  margin-left: 2rem;
+  grid-row-gap:5%;
+
+}
+
+@media only screen and (max-width: 700px) {
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    margin-top: 2rem;
+    width: calc(100% - 2rem);
+    margin-left: 2rem;
+    grid-row-gap:5%;
+    margin-bottom: 7rem;
+  }
+
+}

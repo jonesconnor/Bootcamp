@@ -1,0 +1,28 @@
+server:
+  port: 9888
+spring:
+  cloud:
+    gateway:
+      default-filters:
+      - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+    
+      routes:
+        
+      - id: patientapp
+        uri: http://localhost:9091
+        predicates:
+        - Path=/patient/**
+      
+      - id: pharmacyapp
+        uri: http://localhost:9092
+        predicates:
+        - Path=/pharma/**
+
+        
+  

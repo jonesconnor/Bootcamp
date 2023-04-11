@@ -1,0 +1,40 @@
+h1 {
+  font-weight: 550;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+div {
+  margin: auto;
+  padding: 10px;
+}
+
+.main-header {
+  font-size: 25px;
+}
+
+#dashboard-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 1rem;
+  flex: 1;
+  margin-top: 20px;
+}
+
+.card {
+  width: 400px;
+  height: 450px;
+  background-color: lightslategrey;
+}
+
+.header-card{
+  color:white;
+}
+
+.card-desc{
+  color:white;
+}

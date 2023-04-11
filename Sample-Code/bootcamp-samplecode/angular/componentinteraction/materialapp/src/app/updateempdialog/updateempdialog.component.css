@@ -1,0 +1,13 @@
+div
+{
+    background: lightcyan;
+}
+
+.clsform
+{
+    display: flex;
+    flex-direction: column;
+   width: 100px;
+   margin: 0px auto;
+
+}

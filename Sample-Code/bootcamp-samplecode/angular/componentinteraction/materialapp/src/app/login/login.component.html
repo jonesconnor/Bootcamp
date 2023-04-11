@@ -1,0 +1,25 @@
+
+<mat-expansion-panel id="matid">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Personal data
+      </mat-panel-title>
+      <mat-panel-description>
+        Type your name and age
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  <div class="clsform">
+    <mat-form-field appearance="fill">
+      <mat-label>username</mat-label>
+      <input id="uname" matInput #uname>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>password</mat-label>
+      <input id="password" matInput type="password" min="6" #pwd>
+    </mat-form-field>
+
+    <button id="butsignin" mat-raised-button color="primary" (click)="signin(uname.value,pwd.value)">SignIn</button>
+  </div>
+  </mat-expansion-panel>

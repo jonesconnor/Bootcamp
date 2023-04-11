@@ -1,0 +1,50 @@
+<section>
+    <h4> Employee Form </h4>
+
+     
+    <!-- <input [(ngModel)]="name" placeholder="enter name"> -->
+  
+    <div class="clsdiv">
+   <input [(ngModel)]="empobj.empId" placeholder="enter the employeeid">
+   <input [(ngModel)]="empobj.empName" placeholder="enter employee name">
+
+   <button (click)="register()">Register</button>
+    </div>
+
+  
+<div class="clscard" *ngIf="employees?.length">
+    
+    <div class="card" style="width: 10rem;" *ngFor="let employee of employees">
+     
+        <div class="card-body">
+          <h5 class="card-title">Employee Id : {{employee.empId}} </h5>
+          <p class="card-text"> {{employee.empName}} </p>
+          <button class="btn btn-primary" (click)="deleteEmp(employee.empId)">Delete</button>
+        </div>
+      </div>
+
+
+
+
+</div>
+
+<!-- <table>
+
+<tr *ngFor="let employee of employees">
+  </tr>
+
+
+</table> -->
+
+
+
+
+
+
+
+</section>
+
+
+
+<!-- {{name}} 
+<button (click)="display()">Click here</button> -->

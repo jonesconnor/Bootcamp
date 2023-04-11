@@ -1,0 +1,31 @@
+
+server:
+  port: 9999
+spring:
+  application:
+    name: cgigateway
+  cloud:
+    gateway:
+      default-filters:
+      - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+      
+      - id: blogservice
+        uri: http://localhost:9091
+        predicates:
+        - Path=/blog/**
+       
+      - id: newsservice
+        uri: http://localhost:9092
+        predicates:
+        - Path=/news/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

@@ -1,0 +1,60 @@
+<header class="header">
+    <nav class="navbar">
+      <h1 class="navbar__title">
+        <i class="fa-solid fa-stethoscope"></i> Healthcare App
+      </h1>
+      <ul class="navbar__menu">
+        <li class="navbar__menu-items">
+          <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+        </li>
+        <li class="navbar__menu-items">
+          <a href="#"
+            ><i class="fa-solid fa-user-doctor"></i> Service Providers</a
+          >
+        </li>
+        <li class="navbar__menu-items">
+          <a href="#"
+            ><i class='fa-regular fa-calendar'></i> My Calendar</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div class="header__user-account">
+      <button
+        type="button"
+        class="btn-notifications"
+        (click)="openNotifications()"
+      >
+        <span
+          *ngIf="notificationsCount > 0"
+          class="material-symbols-outlined"
+          [matBadge]="notificationsCount"
+          matBadgePosition="before"
+          matBadgeColor="accent"
+        >
+          notifications
+        </span>
+        <span *ngIf="notificationsCount === 0" class="material-symbols-outlined">
+          notifications
+        </span>
+      </button>
+      <ul class="user-account__actions">
+        <li class="action__items">
+          <a href="#" [hidden]="!isLoggedIn">Hello {{currentPatient.firstName}} {{currentPatient.lastName}}</a>
+        </li>
+        <li class="action__items">
+          <button type="button" class="btn-logout" (click)="logout()">
+            {{ isLoggedIn ? "Logout" : "Login" }}
+          </button>
+        </li>
+      </ul>
+    </div>
+  </header>
+  
+  <app-noteslist
+    [togglePanel]="isNotificationsOpen"
+    (panelClosed)="closeNotifications()"
+    (sendNotificationsToHeader)="updateNoOfNotifications($event)"
+  >
+  </app-noteslist>
+  

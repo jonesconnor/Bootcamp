@@ -1,0 +1,19 @@
+.mat-amber{
+  background-color:#FEC901 !important;
+}
+
+.top{
+  padding-top:25px;
+  padding-bottom:25px;
+  padding-left:15px;
+}
+
+.container {
+  display: flex;
+  
+}
+
+.middle{
+  width: 100%;
+  text-align: center;
+}

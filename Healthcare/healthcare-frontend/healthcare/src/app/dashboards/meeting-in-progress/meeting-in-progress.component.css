@@ -1,0 +1,12 @@
+main{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+h1, button{
+    margin:auto;
+}
+p{
+    margin:auto;
+    font-size:10px;
+}

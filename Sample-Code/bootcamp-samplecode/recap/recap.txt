@@ -1,0 +1,261 @@
+07/02/2023
+
+p
+span
+div
+
+
+article
+nav
+header
+footer
+main
+section
+
+live-server
+
+
+css
+
+internal	<head> <style> </style?
+external	filename.css , <link l
+inline  <a style=
+
+
+
+3 types of selectors
+tag	-- p,h1,span,
+id	-- uniquly identify, #
+class  -- multiple elements with same styling , .
+
+html & css
+
+<br> &nbsp
+
+
+alignment : margin,padding
+layouts	  : display : grid, flex
+
+text : centre,color
+element : background,border,shadow
+hover : a, button
+img	: <img src=''>
+ 
+background : url('')
+
+paperlayout : flex-direction : row, column
+
+parallax effect : background : fixed
+
+tables
+		<table border=2>
+				<tr><td</td><td></td>
+
+border : 2px solid red
+footer: 
+
+margins : debug - inspect -> dev tool - style
+
+mediaquery
+ width,height, printer, screen 
+	max width<500
+	{
+
+
+
+	}
+
+display : none
+	: visible
+	 
+
+07/02
+bootstrap
+	framework
+	responsive
+	mobile first 
+	js,jquery,html,css
+
+utilities
+	classes	: bg, m,p , text-color, display , sm/md/lg/xxl,border,f, w-300,h-100
+	alignment
+	border
+	
+	body/h1 - h6 : margin=0
+	
+components
+	navbar,carousel , card,collapse,button, layout
+		container
+			row
+			column
+		col-12 col-lg-3 md-6 sm-12
+ 4images
+		lg - each image 3 columns
+
+
+fontawesome icons
+	cdn
+		<i fa>
+
+google fonts
+	cdn
+		font family
+
+
+customize the classes 
+	add more styling with the existing class
+		.bg-primary
+			font-weight: bold
+			background:red !important
+
+
+Javascript
+	lightweight, single thread
+	
+
+ varient
+	no specific datatype
+
+  let or var
+
+ var --> 
+
+			var a=10; let b=10
+		{
+		 var a="abc"
+		let b=16	
+		}
+	
+		display value of a -- 15
+		display value of b- 10
+
+
+ let
+
+
+
+
+	interpretted
+
+	client side - browser
+
+	validations, functionalites
+
+
+ server side	 , 		client side (browser)
+				 
+				
+ spring				 js,react,angular
+	
+function
+
+let x=function (){	}
+
+let y= function (){ return 1}
+let z=function() { return 2}
+
+
+let x= y +z 
+
+	function funall (fun1, fun2,x,y)
+	{
+	console.log(	fun1(x) + fun2(y) )
+	}
+
+	funall( x=>x*x, y=>y*10, 50, 60)
+
+	
+	x=5
+	x="abc"
+	
+	if(x>10)
+	
+for()
+
+switch
+
+while
+
+
+08/02
+
+Array	[]
+push
+pop
+shift
+
+splice : change source array
+
+slice : returning result array
+
+filter
+
+map
+
+reduce
+
+forEach --
+
+isArray
+
+flat()
+
+flatmap
+
+collection : { } 
+
+	  key: value
+
+	objec["key"]
+
+
+class
+		class Emp
+		{
+			name="";
+				constructor(nm)
+				{
+				this.name=nm
+				}
+		}
+
+
+employees=[emp1,emp2,emp3]
+
+	filter()
+	.map( )
+	.reduce()
+DOM - WEB API
+	
+	tree structure
+
+	document
+	
+getElementById("cssselect") --> HTML Element
+getElementsByClass	-- HTML Collection
+getElementsByTag	HTML Collection
+
+tab=document.getElementsByclassName("clstable")[0]
+
+trows=	tab.getElementsByTag("tr")
+
+static content
+
+element.style.color
+
+element.innerText
+	.innerHTML
+
+input
+	value
+
+
+
+
+
+
+
+
+
+
+

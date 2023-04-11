@@ -1,0 +1,573 @@
+13/feb
+
+spa
+	advantages
+	 index.html
+		component
+		
+	there is a any change in any component, only that component will be rendered
+
+  Angular
+	client side framework
+	typescript
+	MVVC pattern
+	orchestration of application at client side
+
+   @angular/cli
+  
+  ng --> 
+
+ architecture
+	configuration : json
+	src : app
+	
+	main.ts
+	index.html -- <app-root>  --
+	style.css
+
+	app.module : component,service,directives
+	
+	AppComponent : bootstraping component
+
+	
+	Class -- component, module
+
+	@Decorators
+	
+	@NgModule :	meta information - declarations, imports, exports,provider
+			 services
+			 list of components			
+
+
+	@Component : meta info selector, html page, css 
+
+       Component
+	
+		html,css,spec.ts , ts
+
+	html : template html	- template syntax
+
+	ts : business logics
+
+     template-syntax
+		interpolation : {{ }} -- display varialb value, call function inside html , one way binding
+	
+	  	structural directive : ngIf,ngFor,
+					html *ngIf
+
+		attribute : ngClass,ngStyle, ngModel
+		
+		binding : 
+			property : []
+			event : ()
+		
+		template ref
+				<input #nm>
+				{{ function(nm.value) }}
+
+
+    component
+		ng g c compname 
+		
+		app.module
+
+		<app-componentname></app-componentname>
+		
+ 
+
+databinding
+
+ngModel
+	ts & html template  -- ts to html and html to ts
+
+ts
+	variable
+
+html
+	input [(ngModel)]=variable
+
+two way binding
+
+
+pipes : transform
+	
+	uppercase , lowercase 
+
+template driven forms
+
+	form 
+	
+ input
+	type - text, number,password
+	validations : required, minlength,maxlength
+
+	invalid,dirty, touched
+
+<input id=name #name  name type=text required>
+
+ errors ---> required, minlength 
+
+*ngif="name.invalid && name.touched"
+
+<div *ngIf =name.errors.required> name can not be null> 
+
+
+15th Feb
+
+service
+	modularity 
+	functions , constants, data
+
+     injected component
+
+
+Injector --> provided by angular
+
+	instances of services and provide it
+
+provider : root level --one instance of service , will be access across the application
+
+
+provider : module level / component level -- instances will be created modulewise / component based
+
+dependency injection
+	
+		component -- constructor , inject the service instance
+
+
+HttpClient -- built in angular service, to access Http calls
+
+	   HttpClientModule --> HttpClient service
+
+	get,post,put...
+
+	methods of HttpClient returns response in a form of  Observable object
+
+	observable -- stream of data , multiple responses from server, based on the availability of data in server resource
+
+  in client -- subscribe the observable object
+
+
+
+userdefined pipe : 
+
+		ng g p newpipe
+	
+		@Pipe
+			'myname'
+
+
+	    transform
+		logic for transforming the input
+
+
+         array, criteria element
+		
+	 return	array.filter( ele=> criteria )
+
+
+	html
+		ngFor="let emp of employees | myname (
+
+	
+
+
+
+
+
+
+how many components
+refactor using modules : 
+service : business logic
+
+16/02
+
+routes
+	route
+
+	path		- url - component
+	component - instance of component
+
+routermodule -
+
+	<router-outlet></router-outlet> ---> context for the component to be viewed
+
+2 types of access
+	<a router-link 
+
+	router service
+		navigate() method - access path of component
+
+children route
+	parent component
+
+	<router-outlet >--> children components to be displayed
+
+reactive forms
+formbuilder
+formgroup
+formcontrol
+
+<form [formgroup]="user" >
+	formControlName="username"
+
+
+</form>	
+
+ts
+	user:FormGroup
+	user=fbuilder.group(
+
+	{
+		username: new FormControl('',..)
+		
+	}
+)
+
+
+user.value
+		{username:"textbox",    }
+
+
+
+<form>
+
+	<input [formControl]="username" >
+
+	<input [formControl]="password" >
+
+</form>
+
+
+ts
+
+	username=new FormControl(''..)
+	password=new FormControl('',validations...)
+
+	
+	username.value
+		
+
+
+1) router parameter
+
+3 steps
+
+step 1 : routes  constant , 
+
+	path : define paramert 
+		url/:parametername
+
+
+
+step 2 :
+
+	service , pass paramvalue
+
+	method(pvalue )
+
+	navigate(path/pvalue)
+
+
+step 3:
+
+	retrive parameter in component
+
+	component ts
+
+	ActivateRoute
+let val=	  snapshot.params.get("parametername")
+
+
+2. using named routes 
+		multiple router outlets in a component, then we can use named routes
+
+3 steps
+
+step 1
+	define named route for a component in routes
+		
+		path:component1
+		outlet: nameofoutlet
+
+step2 service
+	
+		navigate( '[parentpath',
+		{
+		outlets : nameofoutlet : (component1)
+		}
+	
+
+step 3 in parent component
+
+		<router-outlet></router-outlet>
+
+		<router-outlet name="nameofoutlet"> </router-outlet>
+	
+
+	
+how to protect component
+	guard
+
+		generate a newguard
+
+	routes
+			path:component
+			canActivateGuard : newguard
+
+
+	canactivateguard.ts  : 
+	
+		method -- if returns true then the component can be accessed else can not navigate to component path
+
+
+
+for a single session (cleared in new tabs)
+
+sessionStorage.setItem(key,value)
+sessionStorage.getItem(key) --> returns value
+
+
+accessed across the pages and across all tabs.
+localStorage.setItem(key,value)
+		
+
+
+login component -> button click - navigate to dashboard
+
+		canactivate : write logic: true
+
+			write logic for  navigate back to login
+
+navigate to dashboard component
+
+
+componenent interaction
+
+ parent
+
+	<app-child>
+
+
+pass values
+
+	parent to child : property binding
+	child to parent : event bining
+
+
+ <app-child [prop]="parentvarialbe" (childevt)="get($event)"
+
+child 
+
+	@Input 
+	prop :any 
+
+	@Ouput
+	childevt =new EventEmiiter
+
+
+	localevt()
+	{
+
+	childevt.emit(value)
+
+dialogs
+
+
+	MatDialog
+
+	source
+	dialog component
+
+	source component
+			dialog.open(EditViewComponent
+
+data : {"key",somedata)
+}
+
+
+ EditViewComponent
+
+
+	@Inject Dialog   data.key
+
+
+
+
+Material
+	include relavent APIs in app module
+	
+
+toolbar
+input MatInput
+	formfield
+
+card
+table
+button
+
+
+reflect the changes across  component
+
+behaviousubject
+
+
+access API which is protected by JWt token
+
+ {
+
+    headers: new HttpHeaders().set('Authorization','Bearer '+this.token),
+         
+  }
+
+
+testing using jasmine (component)
+	testing using cypress(e2e)
+
+
+how to access 3rd party 
+
+
+paginate
+
+
+
+
+
+ 
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+			
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+				
+ 
+
+	
+
+
+
+	
+
+
+
+
+
+
+
+		
+
+
+
+ 

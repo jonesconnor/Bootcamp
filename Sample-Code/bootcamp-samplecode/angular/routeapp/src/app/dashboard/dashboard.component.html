@@ -1,0 +1,32 @@
+<div>
+
+<h4> Dashboard </h4>
+Welcome {{uname}}
+
+ <input #role placeholder="Enter Role">
+
+
+
+<div></div>
+<button (click)="gotoBack()">Back</button>
+<button (click)="gotoForward()">Forward</button>
+<button (click)="callGrid()">GridView</button>
+<button (click)="callEmp(role.value)">Employee Details</button>
+<button (click)="callListview()">Listview</button>
+<div></div>
+
+
+<!-- gridview / employee components will be using the below outlet-->
+<router-outlet></router-outlet>
+
+
+<h5> Listview outlet </h5>
+<div>
+
+    <!-- listview component will use the below outlet -->
+<router-outlet name="listOutlet"></router-outlet>
+
+</div>
+
+
+</div>

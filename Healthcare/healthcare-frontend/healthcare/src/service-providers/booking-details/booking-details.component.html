@@ -1,0 +1,89 @@
+<h3 mat-dialog-title class="dialog__title">Booking Details</h3>
+<div mat-dialog-content class="dialog__content">
+  <section>
+    <h4 class="patient-name">
+      <mat-icon>personal_injury</mat-icon>
+      {{ data.patientName }}
+    </h4>
+    <p>
+      <b>
+        <mat-icon>today</mat-icon>
+        Appointment Date & Time:
+      </b>
+      {{ data.bookingDate }} {{ data.bookingTime }}
+    </p>
+    <p>
+      <b>
+        <mat-icon>timer</mat-icon>
+        Duration:
+      </b>
+      {{ data.duration }}
+    </p>
+    <p>
+      <b>
+        <mat-icon>pending_actions</mat-icon>
+        Subject:
+      </b>
+      {{ data.subject }}
+    </p>
+    <!--     <p>
+      <b>
+        <mat-icon>emergency</mat-icon>
+        Emergency:
+      </b>
+      {{ data.isEmergency ? "Yes" : "No" }}
+    </p> -->
+    <p>
+      <b>
+        <mat-icon>map</mat-icon>
+        Location:
+      </b>
+      {{ data.location }}
+    </p>
+    <p>
+      <b>
+        <mat-icon>update</mat-icon>
+        Status:
+      </b>
+      {{ data.status }}
+    </p>
+    <div class="actions__wrapper">
+      <button
+        *ngIf="data.status == 'Pending'"
+        class="btn__action"
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="dialogResult.confirm"
+        cdkFocusInitial
+      >
+        <mat-icon>check_box</mat-icon>
+        Confirm
+      </button>
+      <button
+        *ngIf="data.status == 'Confirmed' || data.status == 'Updated'"
+        class="btn__action"
+        mat-raised-button
+        color="primary"
+        (click)="openMeetingInProgress(data)"
+        cdkFocusInitial
+      >
+        <mat-icon>check_box</mat-icon>
+        Start Meeting
+      </button>
+      <button
+      *ngIf="data.status != 'Complete'"
+        class="btn__action"
+        mat-raised-button
+        color="accent"
+        [mat-dialog-close]="dialogResult.update"
+      >
+        <mat-icon>edit_square</mat-icon>
+        Update
+      </button>
+      <button class="btn__action" mat-raised-button (click)="onGoBackClick()">
+        <mat-icon>undo</mat-icon>
+        Go Back
+      </button>
+    </div>
+  </section>
+</div>

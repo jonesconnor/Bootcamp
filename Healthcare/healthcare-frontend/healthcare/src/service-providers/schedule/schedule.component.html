@@ -1,0 +1,13 @@
+<main>
+  <div class="schedule__container">
+    <!-- SideNav component -->
+    <app-side-nav></app-side-nav>
+
+    <section class="content">
+      <h2 class="page__title">{{ pageTitle }}</h2>
+      <div class="calendar__wrapper">
+        <full-calendar [options]="calendarOptions"></full-calendar>
+      </div>
+    </section>
+  </div>
+</main>

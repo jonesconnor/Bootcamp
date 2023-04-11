@@ -1,0 +1,784 @@
+Spring - Recap
+
+27/02
+
+Why enterprise application
+
+	layered arch
+
+sun micro : J2EE -- Enterprise application
+
+java,ejb,jms,jta,rmi,servlet/jsp
+
+configuration
+	xml 
+
+spring
+	interfaces
+	lightweight
+	framework of frameworks
+	IOC
+	6 modules
+	API collections - many years
+	declarative programming
+	Jakarta - logs,pool
+
+core
+	IOC
+
+dependency injection - > component , depends on another component, then the dependency can be accessed only via property,constructor, factory based injection
+
+ POJO + Meta -> IOC Container ---- instance of depency ready
+
+meta info --> filename.xml --- xsd file for loading basic xml tags for defining bean
+
+
+ApplicationContext --> pull the instance form container and inject the instance to the required components
+
+<bean name="empbean"....
+>
+
+
+deparatnment bean class
+  <property name="id" value="23">
+  <property name="emp" ref="empbean">
+
+  
+constructor
+
+  <construct-arg index="2" ref="empbean">
+
+
+scope
+
+	singleton -- one instance only will be created --> accessed across application 
+	prototype -- each dependent class will get new instance of dependency
+
+autowire
+		property/constructor based DI in meta file can be avoided
+
+	byType - -
+	byName -- bean name should be mapping to the object
+ 	constructor
+
+   <bean id="customer" class autowire="byName">
+
+Customer class
+
+{
+
+	@Autowired
+	Product product   // bean with id product should be exist
+
+}
+
+
+
+Customer
+{
+	@Autowired
+	Customer(Product pr)
+	{
+	}
+}
+
+
+Java based configuration
+
+@Configuration --> spring will initialize this class and beans will be created
+
+@Beans	-- factory method which returns instance of specific class 
+
+@Autowired --  byType
+
+@Scope
+
+@Bean(initMethod
+
+Lifecycyle	init, destroy
+
+call back
+	postprocessor
+
+	pre 	---> after bean initialized, to set properties
+	post  --> after bean initialized, after init being called , to set properties
+
+
+@configuration (bean gets created)
+@preinitilizer - call back
+init Method - life cycle
+
+Spring MVC
+ front controller pattern
+
+	client	--> dispatcherServlet (DS)
+
+		handlermapping
+		controller
+		viewresolver
+		view
+
+	
+client->	DS --> handlermapping (what type request, get/post/put....) -> return contoller endpoints
+		DS --> controller endpoints --> return view name(string) / model object 
+		DS --> viewResolver --> maps view name with view object(jsp page) --> return view object
+		DS --> view object , any data to update using model --> html/xml -> response send to client
+	
+
+monolith application
+
+model,view,controller -- single app
+
+change in model,business logic --> rebuild entire app
+
+
+01/03
+
+
+Boot & REST API
+ORM
+
+Boot -> starter - opinionated out of box
+		  embedded server, externalized configuration, health, security
+		   jar - war
+	REST  API	- 6 archi constraints
+		
+		web services -- 
+		REST API
+	URI - uniquly identify resources -- CRUD operation on the database / file
+	
+	@RestController
+	
+ORM
+	object relational mapping
+
+	
+JDBC : developer should know SQL queries
+
+					backend
+	java class  -->	ORM	 -->	database table
+		    <--		<--
+
+Hibernate
+	object	hiber		table
+	
+object entity
+	
+sessionFactory 	-> connection bet client side and database
+
+unique session --> currentSession
+
+class ---> table
+
+HQL -- Object 
+
+class object
+		from Employee()
+		save()  -- similar to insert intor
+		
+
+Database connectivity detail -- property (independent of java logic)
+				mysql	
+				oracle
+				SQL server
+
+		
+  class obj - HQL - hibernate -- relevant database query 
+		
+properties of hibernate
+	dialect -> which database
+					select * from employee
+				        select from employee
+ 
+ 
+	
+
+02/03
+Spring Repositories
+	collection of repositories
+	
+	interface  - abstract method , access datasource
+
+	reduce boilerplate code in accessing database connect as well operations using database
+
+CrudRepository
+
+    save, deleteById,findById
+
+JpaRespostiory
+  
+	RDBMS
+
+customizing finder method  	
+
+	findByEmailid
+
+
+Rest API using Spring Boot , connects with Mysql , configuring based on hibernate and accessed using JPA
+
+resources : post,del,put, find etc
+
+Tested using postman
+
+
+
+relational model
+
+rdbms
+
+JPA + Hibernate -- REST API
+
+Hospital - 1 hospital many patients
+
+@JsonIgnore
+@OneToMany
+	List<Patient> patient
+
+@JsonIgnore
+@OneToMany
+	List<Staff> employees;
+
+
+Patient - many patients admitted in one hospital
+
+@ManyToOne
+ Hospital hospital
+
+hospital,patient,hosptial_patients
+
+
+patient - foreign key relation hospital
+
+
+Staff
+
+@ManyToOne
+  Hospital hospital
+staff - foreign key relation hospital id with hospital table
+
+
+MongoRepository
+
+spring.data.mongodb.uri --
+
+
+extends CrudRepository
+
+
+document
+	each documents are unique
+	each document can have different fields
+
+
+add,delete...
+
+
+
+jwt token
+
+API
+
+generating token
+
+protecting API using token
+
+
+
+
+jwts --> setsubject, setissue, setexpiry,setsignature - generate token 
+
+
+
+protecting api
+
+
+		add filterregistration bean
+				urlpattern
+
+		add genericfilter
+			which filters the request coming to url pattern
+		
+			parse jwt token 
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ci 
+
+	multi user - access the same shared repository, monitor every changes
+
+
+stages
+	test
+	build
+
+shared repo - git
+multiple user --> multiple check in 
+
+every checkin --> user -> code -> successfully completing the stages test and build
+
+automated
+
+CI  server
+
+	1) developer checkin
+	2) fetch in changes 
+	3) ci server - runs the stages automatically
+	4) sends the notification if stages are not successfully cleared
+	5) developer change his code and update
+
+gitlab runner / jenkins
+
+shared runners 
+		
+	commit - to git repo
+	pipeline -- will start execute
+
+	.gitlab-ci.yml
+
+		configurate for ci server
+
+
+	run the stages automatically
+
+spring boot --> s/w jdk and maven
+
+git environment -- want to test the java app and build the java app
+
+how without s/w, we would run the stages (testing and building)
+
+docker : images
+
+pull the images from docker
+jdk
+maven
+
+
+run the script 	: mvn test, mvn package : Git CI server
+
+pipeline succeeded - if the above commands are successful
+
+else notification to your registered email for git
+
+
+
+service : mysql ? git environment 
+
+docker image
+
+pull image of mysql
+
+environment variables
+
+MYSQL_ROOT_PASSWORD : pass@123  --> password for docker mysql
+
+myurl=jdbc:mysql://.....
+
+
+springbootapp
+
+application properties
+
+	url= localhost:3306/abc&user=root&password=pass@123
+
+	url=${myurl}
+
+
+			
+
+
+springboot -- execute in 2 places
+
+1) one using your own machine 
+		environment variable locally -- > edit env -- myurl
+
+
+
+2) git environment
+
+	.yml
+
+ images of mvn, java, mysql
+script
+environment variables
+
+   myurl=
+
+
+
+
+
+microservices : architecture
+
+	scalbel,indep, deployable, multiple s/w
+
+	service reg, gateway, load balance , circuit breaking , communication b/w microservices
+
+spring boot : 
+
+	spring cloud
+
+
+swagger : documenting & testing
+
+		port/swagger-ui/		details of model/controller
+		execute 
+
+
+		
+
+	Spring boot actuators -- production\
+				built in endpoints
+			
+				set some properties
+					security, cors, beans 
+
+	multimodule -- 
+				parent - package - pom
+					modules
+					multiple	- childapp artifact
+
+				childapps can use the pom of parent
+				avoid duplicate 
+				centralized dependency management
+				parent - build install --> all childapps
+					- pipeline	--> all childapps 
+
+
+					
+	@Query
+				customize the repo queries
+			@Query("select obj employee  obj where obj.ename=?1")
+
+
+			@Transactional
+			@query("delete ... ")
+
+Mongo repo
+
+   @Query("{"enname" :?0}")
+
+https://docs.spring.io/spring-data/mongodb/docs/1.2.0.RELEASE/reference/html/mongo.repositories.html
+ 
+
+AOP  / beanvalidation
+
+@NotNull
+
+@Max
+
+@Min
+
+@Emailid
+
+
+JSR 250 , JSR 330 specifications
+
+AOP : aspect oriented programming
+
+	business logic
+		/view/	
+		/register/		-- internal server exception (jwt token)
+		/login/
+
+
+	aspects
+		log
+		monitor
+		get the details of api call
+		
+     @Around,@Before , @AfterThrowing()
+					{
+						
+					}
+
+logback.xml -- local machine (spring boot is running)
+	src.main.resource
+
+  @Around
+	
+aspect	-- component , multiple advices
+advices  -- controller methods - com.stackroute.patienjpa.controller.savePatient()
+	
+@After("mypointcut()")
+
+
+	what is to be done? log
+		from which port 
+	
+				client -- localhost:9090/patient/save
+
+join points -- address -
+pointcuts("com.stackroute.patienjpa.controller.savePatient()")
+public void mypointcut()
+{
+}
+	
+
+@Around("mypoint()")
+		ProceedingJoinPoint
+
+	ResponseEntity res=(RE) pjb.proceed()
+		
+
+Patient pat 	=	res.getBody()
+log.warn("patient ob" + pat.getName());
+
+
+
+
+Microservices pattern
+
+service registry - > all microservices will be registered , and details will be monitored
+		spring cloud - netflix eureka
+
+api gateway -> route / filter/ log calls from the client via a common gateway
+
+	 	routing to microservices 
+			spring cloud gateway
+
+rest template -> class, used to consume any microservice in any other microservices
+
+
+central config -> centralize the external properties (application prooerties like db connectivity, service registry details...) in a common repository
+
+
+microservices - will be connected to the central config service for getting the properties
+
+
+	spring central config
+
+
+
+microservices pattern
+
+circuit breaker
+		resilense4j
+
+consumer --> microservice
+	response time is above some(?)  threshold , then we enable circuit breaking
+
+service consumer , need not wait for the microservice, based on circuit breakers message, continue with other transactions
+
+resilence4j - configuration
+minnoofcall
+based on count / time 
+
+
+fallBackMethod - will be invoked automatically , when the service is down
+
+
+
+feign client
+web service client
+provide access to multiple API resources(uri endpoints) from different microservices and under a single microservice using feign
+
+@Feign
+
+
+Feign + circuit breaking
+
+
+RabbitMQ --Message service
+
+messages between 2 microservices
+
+producer - consumer
+
+producer -> send message --> consumer will receive
+
+Exchange -- same for producer and consumer
+Queue  -- used by consumer
+
+RouteKey -- via 
+
+Producer 
+send object  -- publish 
+
+
+consumer
+@RabbitListener --> listens the transactions at Queue, the moment any message gets published in queue , it will be subscribed by the consumer
+
+
+
+
+Docker - containerization
+
+	shipping of s/w
+
+maintain same version/sw across the development functionalities
+
+
+Image			-- s/w , service, application 
+container		-- associate container with image, getting the instance
+
+docker commands
+
+mysql,mongo --> pull and access
+
+Convert spring application into docker image
+
+publish in docker global repo
+
+
+docker-compose.yml
+
+
+
+sonarqube: code standard
+
+		quality check
+
+			code smell, duplication, code coverage, vulnerabilities, security 
+
+technical	debt : time to rebuild the project
+
+jenkins : 	
+		build, test, deploy
+
+	pipeline -> build and test
+ 
+  jenkins file -- script : git scm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+	
+
+
+
+
+
+
+
+		
+
+
+
+		
+
+	
+
+
+
+
+	
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+	

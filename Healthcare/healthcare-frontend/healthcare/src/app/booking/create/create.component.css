@@ -1,0 +1,94 @@
+div{
+    display:flex;
+    flex-direction:row;
+    margin:auto;
+}
+
+.cardTitle{
+    font-size: x-large;
+  }
+  
+  .cardSub{
+    color:white;
+    font-size: large;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .link {
+    color:darkblue;
+    text-decoration:underline;
+    cursor:pointer;
+}
+  
+  .provCard{
+    background-color:lightslategrey;
+    color:white;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    text-align: center;
+  }
+  
+  .cardcontent{
+    margin-top: 0px;
+    color:white;
+    font-size: larger;
+    justify-content: center; 
+  }
+
+.appcheck{
+justify-content: center;
+margin-bottom: 1vh;
+}
+mat-form-field{
+    display:flex;
+    flex-direction:column;
+    
+}
+
+#recurtext{
+    margin-top: 1vh;
+}
+.mat-mdc-text-field-wrapper {
+    height:5px !important;
+ }
+mat-form-field{
+    font-size:10px;
+    height:10.5vh;
+ }
+
+.outercard{
+    max-width:30%;
+    min-width:300px;
+    padding:5px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content: center; 
+    padding-top:5vh;  
+    text-align: center;  
+}
+input{
+    font-size:5px;
+}
+mat-error{
+    font-size:10px;
+}
+mat-card-content{
+    width:auto;
+}
+mat-card-header{
+    justify-content: center;
+}
+.mat-mdc-text-field-wrapper {
+    height:3vh !important;
+}
+
+button{
+    margin:auto;
+}
+body{
+    height:100%;
+}
+
+

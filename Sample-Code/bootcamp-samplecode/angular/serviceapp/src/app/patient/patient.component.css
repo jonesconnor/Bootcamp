@@ -1,0 +1,12 @@
+.clsdiv
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.clscontainer
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

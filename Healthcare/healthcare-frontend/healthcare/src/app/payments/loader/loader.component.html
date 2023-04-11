@@ -1,0 +1,28 @@
+<div id="loader-animation" style="margin-top: 2rem">
+  <mat-progress-spinner
+    class="example-margin"
+    mode="indeterminate"
+    [hidden]="statusMessage"
+  ></mat-progress-spinner>
+</div>
+
+<div id="loader">
+  <div id="loader-text" [hidden]="statusMessage">
+    Getting everything ready for you!
+  </div>
+  <div id="loader-text" [hidden]="!statusMessage">
+    The payment status for this booking:
+    <p
+      style="margin-top: 5px"
+      [style.color]="statusMessage == 'CONFIRMED' ? 'green' : 'red'"
+    >
+      {{ statusMessage }}
+    </p>
+    <div>
+      <a (click)="openLanding()" style="cursor: pointer"
+        >Return to landing page</a
+      >
+    </div>
+  </div>
+  <div id="loader-text" style="color: red; margin-top: 2rem">{{ error }}</div>
+</div>

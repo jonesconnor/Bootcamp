@@ -1,0 +1,40 @@
+<main class="p-3">
+  <button
+    type="button"
+    mat-raised-button
+    color="warn"
+    class="btn-emerg"
+    (click)="emergency()"
+  >
+    Emergency
+  </button>
+
+  <div class="container">
+    <app-sidebar></app-sidebar>
+    <div class="middle">
+      <h2 class="text-center my-3 page__title">{{ pageTitle }}</h2>
+      <div class="cards">
+        <mat-card class="p-3">
+          <mat-card-title class="text-center"
+            >Book an Appointment</mat-card-title
+          >
+          <mat-card-content></mat-card-content>
+          <mat-card-actions class="mx-auto">
+            <button
+              (click)="goSearchProviders()"
+              mat-raised-button
+              color="accent"
+            >
+              Book Now!
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <hr class="divider" />
+      <div class="calendar__wrapper">
+        <h3 class="calendar__title">My Bookings</h3>
+        <full-calendar [options]="calendarOptions"></full-calendar>
+      </div>
+    </div>
+  </div>
+</main>

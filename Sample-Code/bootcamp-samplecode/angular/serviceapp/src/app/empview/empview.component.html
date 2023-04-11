@@ -1,0 +1,18 @@
+<h3> List of employeess are </h3>
+ 
+<div class="clscontainer">
+
+    <div class="card" style="width: 18rem;" *ngFor="let employee of employees">
+       
+        <div class="card-body">
+          <h5 class="card-title">{{employee.id}} : {{employee.empName}}</h5>
+          <p class="card-text">{{employee.role}}</p>
+         <!-- <button (click)="delete(employee.id)">Delete</button> -->
+        </div>
+      </div>
+
+    </div>
+
+ 
+
+ 

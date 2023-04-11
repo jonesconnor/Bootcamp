@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0");
+
+.header .navbar {
+  padding: 1rem 0;
+}
+
+.nav-link {
+  position: relative;
+  color: var(--color-white);
+  transition-duration: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  cursor: pointer;
+  color: var(--color-disabled);
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-white);
+  transition: width 0.3s;
+}
+
+.nav-link:focus::before,
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-size: 1.25rem;
+}
+
+.bg-dark {
+  background-color: var(--color-primary) !important;
+}
+
+.btn-notifications {
+  display: flex;
+  align-items: center;
+  transform: translateX(-10px);
+}
+
+.btn-notifications,
+.btn-logout {
+  appearance: none;
+  outline: none;
+  border: none;
+}
+
+.btn-notifications {
+  background-color: transparent;
+  color: var(--color-white);
+}
+
+.btn-notifications:hover {
+  cursor: pointer;
+}
+
+.btn-notifications .material-symbols-outlined {
+  transition: color 0.3s;
+}
+
+.btn-notifications:focus .material-symbols-outlined,
+.btn-notifications:hover .material-symbols-outlined {
+  color: var(--color-white);
+}
+
+.btn-logout {
+  font-size: 0.875rem;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  border: 1px solid var(--color-white);
+  border-radius: 4px;
+  padding: 0.25rem 0.75rem;
+  margin-top: 1rem;
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+.btn-logout:hover {
+  cursor: pointer;
+}
+
+
+.btn-logout:hover,
+.btn-logout:focus {
+  background-color: transparent;
+  color: var(--color-white);
+}
+
+@media only screen and (min-width: 1024px) {
+  .user__actions {
+    align-items: center;
+  }
+
+  .btn-logout {
+    margin-top: 0;
+    margin-left: 1rem;
+  }
+}
+
+/* .header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+h1.navbar__title {
+  color: var(--color-white);
+}
+
+.navbar__menu {
+  display: flex;
+  margin-bottom: 0;
+  margin-left: 1rem;
+}
+
+.navbar__menu-items {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.header__user-account {
+  display: flex;
+  align-items: center;
+}
+
+.user-account__actions {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.navbar__menu,
+.user-account__actions {
+  list-style-type: none;
+  padding: 0;
+}
+
+.action__items {
+  margin-left: 1rem;
+}
+
+.navbar__menu-items > a,
+.action__items > a {
+  text-decoration: none;
+  color: #fefefe;
+  position: relative;
+}
+
+.action__items > a::before,
+.navbar__menu-items > a::before {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-white);
+  transition: width 0.3s;
+}
+
+.action__items > a:focus::before,
+.navbar__menu-items > a:focus::before,
+.action__items > a:hover::before,
+.navbar__menu-items > a:hover::before {
+  width: 100%;
+}
+
+.action__items > a:focus,
+.navbar__menu-items > a:focus {
+  outline: none;
+}
+
+ */

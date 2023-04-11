@@ -1,0 +1,6 @@
+FROM openjdk:17-alpine
+WORKDIR usr/src
+ADD /target/patientjpa-0.0.1-SNAPSHOT.jar /usr/src/patientjpa-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","patientjpa-0.0.1-SNAPSHOT.jar"]
+ENV MYSQLURL=jdbc:mysql://mysqls:3306/cgi2023?createDatabaseIfNotExist=true&user=root&password=password
+ENV DOCKERURL=http://eurekas:8761/eureka

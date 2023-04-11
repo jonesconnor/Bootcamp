@@ -1,0 +1,23 @@
+.clsform {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.mat-amber{
+  background-color:#FEC901 !important;
+}
+
+.custom-dialog {
+  width: 500px;
+  height: 450px;
+  padding: 20px;
+}
+
+.custom-textarea {
+  height: 200px;
+}
+
+.pb {
+  padding-bottom: 50px;
+}

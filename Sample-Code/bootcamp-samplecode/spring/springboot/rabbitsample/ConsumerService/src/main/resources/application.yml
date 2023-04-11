@@ -1,0 +1,15 @@
+app:
+  message: Successfuly read the message
+  
+spring:
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    port: 5672
+    exchange: cgipharamexchange
+    queue: cgiqueue
+    routingkey: cgipharamaroutekey
+      
+server:
+  port: 9191

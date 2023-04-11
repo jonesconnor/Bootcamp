@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+  mysqls:
+    image: mysql
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: cgi2023
+      MYSQLURL: jdbc:mysql://localhost:3306/cgi2023?createDatabaseIfNotExist=true&user=root&password=password  
+
+  patientapp:
+    image: maryrani/patientimg
+    depends_on:
+      - mysqls
+    restart: on-failure
+    ports:
+      - 9091:9091
+
+  mongos:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGOURL: mongodb://localhost:27017/testmongo
+
+
+  pharamacyapp:
+    image: maryrani/pharmaimg
+    depends_on:
+      - mongos
+	- eurekaservice
+    restart: always
+    ports:
+      - 9092:9092
+    environment:
+	EUREKAURL: http://eurekaservice:8761/eureka
+
+  eurekaservice:
+    image: maryrani/eurekaimg
+    restart: always
+    ports:
+      - 8761:8761
+

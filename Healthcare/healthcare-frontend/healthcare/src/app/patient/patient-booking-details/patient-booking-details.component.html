@@ -1,0 +1,80 @@
+<h3 mat-dialog-title class="dialog__title">Booking Details</h3>
+<div mat-dialog-content class="dialog__content">
+  <section>
+    <h4 class="patient-name">
+      <i class="fa-solid fa-user-doctor me-2"></i>
+      {{ providerName }}
+    </h4>
+    <p>
+      <b>
+        <i class="fa-solid fa-clock me-2"></i>
+        Appointment Date & Time:
+      </b>
+      {{ data.timeSlot?.bookingDate }} {{ data.timeSlot?.bookingTime }}
+    </p>
+    <p>
+      <b>
+        <i class="fa-solid fa-stethoscope me-2"></i>
+        Subject:
+      </b>
+      {{ data.subject }}
+    </p>
+    <p>
+      <b>
+        <i class="fa-solid fa-location-dot me-2"></i>
+        Location:
+      </b>
+      {{ data.location }}
+    </p>
+    <p>
+      <b>
+        <i class="fa-regular fa-calendar-check me-2"></i>
+        Status:
+      </b>
+      {{ STATUS[data.status!] }}
+    </p>
+    <div class="actions__wrapper">
+      <button
+        *ngIf="STATUS[data.status!] === 'Confirmed'"
+        class="btn__action"
+        mat-raised-button
+        color="primary"
+        (click)="onJoinMeetingClick()"
+        [disabled]="showMeetingLink"
+        cdkFocusInitial
+      >
+        <i class="fa-sharp fa-solid fa-phone-volume me-2"></i>
+        Join Meeting
+      </button>
+      <button
+        *ngIf="STATUS[data.status!] !== 'Complete'"
+        class="btn__action"
+        mat-raised-button
+        color="accent"
+        [mat-dialog-close]="dialogResult.cancel"
+      >
+        <i class="fa-solid fa-trash me-2"></i>
+        Cancel Booking
+      </button>
+      <button class="btn__action" mat-raised-button (click)="onGoBackClick()">
+        <mat-icon>undo</mat-icon>
+        Go Back
+      </button>
+      <button
+        class="btn__action"
+        style="background-color: green; color: white"
+        mat-raised-button
+        (click)="redirectToPayment(data.id!)"
+      >
+        <i class="fa-solid fa-money-bill"></i>
+        Pay Now!
+      </button>
+      <p *ngIf="showMeetingLink" class="meeting-link">
+        <button type="button" (click)="openMeetingInProgress(data)">
+          Click here to join your virtual consultation
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </button>
+      </p>
+    </div>
+  </section>
+</div>
